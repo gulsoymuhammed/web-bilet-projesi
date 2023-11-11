@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Hesabım</title>
+</head>
+
+<style>
+    .center {
+        display: flex;
+        justify-content: center;
+    }
+
+    body {
+        background-color: #fbfbfb;
+    }
+
+    @media (min-width: 991.98px) {
+        main {
+            padding-left: 240px;
+        }
+    }
+
+    
+
+    /* Sidebar */
+    .sidebar {
+        position: fixed;
+    padding-top: 58px; /* Navbar yüksekliği */
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.05), 0 2px 10px 0 rgba(0, 0, 0, 0.05);
+    width: 180px;
+    height: 600px;
+    z-index: 600;
+    overflow-y: auto; /* Yan çubuğun kaydırılmasına izin ver */
+    left: 20px; /* Sayfanın solundan 20px sağa kaydır */
+        }
+
+       
+</style>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark fixed-top navbar-expand-sm" id="nav">
+        <div class="container-fluid">
+            <!--  arama yapma butonu kodu -->
+            <!-- navbar devamı -->
+            <!-- navbarın ortasındaki linkler  -->
+            <div class="collapse navbar-collapse center " id="navbarNav">
+                <!-- burdaki collapse in anlamı mobil görünüme geçince aşşağıya doğru açılacak bu linkler -->
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link white " href="logined.html">Anasayfa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link white " href="favoriilanlarım.html">Favori İlanlarım</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link warning active" href="hesapbilgilerim.html">Hesabım</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link white" href="bilgilendirmelerim.html">Bilgilendirmelerim</a>
+                    </li>
+                </ul>
+                <!-- izlenilecek yol , computercom gibi kodlar yandan açılacak  -->
+            </div>
+        </div>
+    </nav>
+
+    <br><br><br>
+
+    <!--Main Navigation-->
+    <header>
+        <!-- Sidebar -->
+        <div id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
+            <div class="position-sticky">
+                <div class="list-group list-group-flush mx-3 mt-4">
+                    <a href="#" class="list-group-item list-group-item-action py-2 ripple disabled" data-content="yok">
+                       <span>Kurumsal</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action py-2 ripple active" data-content="1">
+                       <span>Kişisel Verilerin Korunumu</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action py-2 ripple" data-content="2"><span>E-posta</span></a>
+                    <a href="#" class="list-group-item list-group-item-action py-2 ripple"
+                        data-content="3"><span>Cep telefonu</span></a>
+                    <a href="#" class="list-group-item list-group-item-action py-2 ripple"
+                        data-content="4">
+                        <span>Şifre Değişikliği</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action py-2 ripple" data-content="5">
+                       <span>Kişisel Verilerin Korunumu</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action py-2 ripple" data-content="6">
+                      <span>Kişisel Verilerin Korunumu</span>
+                    </a>
+                     <a href="#" class="list-group-item list-group-item-action py-2 ripple" data-content="7">
+                      <span>Kişisel Verilerin Korunumu</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action py-2 ripple" data-content="8">
+                        <span>Kişisel Verilerin Korunumu</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action py-2 ripple disabled" data-content="yok">
+                        <span>Yardım</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action py-2 ripple" data-content="9">
+                       <span>Kişisel Verilerin Korunumu</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action py-2 ripple" data-content="10">
+                       <span>Kişisel Verilerin Korunumu</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action py-2 ripple" data-content="11">
+                        <span>Kişisel Verilerin Korunumu</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action py-2 ripple" data-content="12">
+                        <span>Kişisel Verilerin Korunumu</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action py-2 ripple disabled" data-content="yok">
+                       <span>Kurumsal</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action py-2 ripple" data-content="13">
+                       <span>Kişisel Verilerin Korunumu</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Sidebar -->
+    </header>
+
+<main>
+
+    <div id="contentContainer" class="container mt-5">
+        <h1 class="text-center" id="contentText"></h1>
+    </div>
+  
+    <div id="cardContainer" class="card mx-auto" style="width: 40rem; ">
+        <div class="card-body">
+           <h1>Kişisel Verilerin Korunması</h1>
+            <p>
+                Müşterilerimizin kişisel verilerinin güvenliğine ve gizliliğine büyük önem veriyoruz. Biletinial'in sunduğu tüm hizmetlerde paylaştığınız kişisel verilerinizin işlenmesi, aktarılması, saklanması ve imha edilmesi, 6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK" / "Kanun") kapsamında titizlikle yönetilmektedir. Bu doğrultuda, kişisel verilerinizin kullanımı ve korunmasıyla ilgili haklarınızı anlamanızı sağlamak amacıyla hazırladığımız politika ve aydınlatma metinleri aşağıda sunulmuştur.
+
+                Belirtilen politika ve aydınlatma metinlerine göre, ilgili mevzuat hükümleri doğrultusunda kişisel verileriniz ve özel nitelikli kişisel verileriniz kaydedilebilir, arşivlenebilir, güncellenebilir, aktarılabilir, sınıflandırılabilir ve KVKK'ya uygun şekillerde işlenebilir.</p>
+
+               <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b> 
+               <br>
+               <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b> 
+               <br>
+               <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b>
+               <br> 
+               <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b> 
+               <br>
+               <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b> 
+    
+        </div>
+    </div>
+
+    <div id="cardContainer2" class="card mx-auto" style="width: 40rem; display: none;">
+        <div class="card-body">
+            <h1>Kişisel Verilerin Korunması</h1>
+             <p>
+                 Müşterilerimizin kişisel verilerinin güvenliğine ve gizliliğine büyük önem veriyoruz. Biletinial'in sunduğu tüm hizmetlerde paylaştığınız kişisel verilerinizin işlenmesi, aktarılması, saklanması ve imha edilmesi, 6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK" / "Kanun") kapsamında titizlikle yönetilmektedir. Bu doğrultuda, kişisel verilerinizin kullanımı ve korunmasıyla ilgili haklarınızı anlamanızı sağlamak amacıyla hazırladığımız politika ve aydınlatma metinleri aşağıda sunulmuştur.
+ 
+                 Belirtilen politika ve aydınlatma metinlerine göre, ilgili mevzuat hükümleri doğrultusunda kişisel verileriniz ve özel nitelikli kişisel verileriniz kaydedilebilir, arşivlenebilir, güncellenebilir, aktarılabilir, sınıflandırılabilir ve KVKK'ya uygun şekillerde işlenebilir.</p>
+ 
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b> 
+                <br>
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b> 
+                <br>
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b>
+                <br> 
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b> 
+                <br>
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b> 
+     
+         </div>
+    </div>
+
+    <div id="cardContainer3" class="card mx-auto" style="width: 40rem; display: none;">
+        <div class="card-body">
+            <h1>Kişisel Verilerin Korunması</h1>
+             <p>
+                 Müşterilerimizin kişisel verilerinin güvenliğine ve gizliliğine büyük önem veriyoruz. Biletinial'in sunduğu tüm hizmetlerde paylaştığınız kişisel verilerinizin işlenmesi, aktarılması, saklanması ve imha edilmesi, 6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK" / "Kanun") kapsamında titizlikle yönetilmektedir. Bu doğrultuda, kişisel verilerinizin kullanımı ve korunmasıyla ilgili haklarınızı anlamanızı sağlamak amacıyla hazırladığımız politika ve aydınlatma metinleri aşağıda sunulmuştur.
+ 
+                 Belirtilen politika ve aydınlatma metinlerine göre, ilgili mevzuat hükümleri doğrultusunda kişisel verileriniz ve özel nitelikli kişisel verileriniz kaydedilebilir, arşivlenebilir, güncellenebilir, aktarılabilir, sınıflandırılabilir ve KVKK'ya uygun şekillerde işlenebilir.</p>
+ 
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b> 
+                <br>
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b> 
+                <br>
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b>
+                <br> 
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b> 
+                <br>
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b> 
+     
+         </div>
+    </div>
+
+    <div id="cardContainer4" class="card mx-auto" style="width: 40rem; display: none;">
+        <div class="card-body">
+            <h1>Kişisel Verilerin Korunması11</h1>
+             <p>
+                 Müşterilerimizin kişisel verilerinin güvenliğine ve gizliliğine büyük önem veriyoruz. Biletinial'in sunduğu tüm hizmetlerde paylaştığınız kişisel verilerinizin işlenmesi, aktarılması, saklanması ve imha edilmesi, 6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK" / "Kanun") kapsamında titizlikle yönetilmektedir. Bu doğrultuda, kişisel verilerinizin kullanımı ve korunmasıyla ilgili haklarınızı anlamanızı sağlamak amacıyla hazırladığımız politika ve aydınlatma metinleri aşağıda sunulmuştur.
+ 
+                 Belirtilen politika ve aydınlatma metinlerine göre, ilgili mevzuat hükümleri doğrultusunda kişisel verileriniz ve özel nitelikli kişisel verileriniz kaydedilebilir, arşivlenebilir, güncellenebilir, aktarılabilir, sınıflandırılabilir ve KVKK'ya uygun şekillerde işlenebilir.</p>
+ 
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b> 
+                <br>
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b> 
+                <br>
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b>
+                <br> 
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b> 
+                <br>
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b> 
+     
+         </div>
+    </div>
+
+    <div id="cardContainer5" class="card mx-auto" style="width: 40rem; display: none;">
+        <div class="card-body">
+            <h1>Kişisel Verilerin Korunması</h1>
+             <p>
+                 Müşterilerimizin kişisel verilerinin güvenliğine ve gizliliğine büyük önem veriyoruz. Biletinial'in sunduğu tüm hizmetlerde paylaştığınız kişisel verilerinizin işlenmesi, aktarılması, saklanması ve imha edilmesi, 6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK" / "Kanun") kapsamında titizlikle yönetilmektedir. Bu doğrultuda, kişisel verilerinizin kullanımı ve korunmasıyla ilgili haklarınızı anlamanızı sağlamak amacıyla hazırladığımız politika ve aydınlatma metinleri aşağıda sunulmuştur.
+ 
+                 Belirtilen politika ve aydınlatma metinlerine göre, ilgili mevzuat hükümleri doğrultusunda kişisel verileriniz ve özel nitelikli kişisel verileriniz kaydedilebilir, arşivlenebilir, güncellenebilir, aktarılabilir, sınıflandırılabilir ve KVKK'ya uygun şekillerde işlenebilir.</p>
+ 
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b> 
+                <br>
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b> 
+                <br>
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b>
+                <br> 
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b> 
+                <br>
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b> 
+     
+         </div>
+    </div>
+
+    <div id="cardContainer6" class="card mx-auto" style="width: 40rem; display: none;">
+        <div class="card-body">
+            <h1>Kişisel Verilerin Korunması12</h1>
+             <p>
+                 Müşterilerimizin kişisel verilerinin güvenliğine ve gizliliğine büyük önem veriyoruz. Biletinial'in sunduğu tüm hizmetlerde paylaştığınız kişisel verilerinizin işlenmesi, aktarılması, saklanması ve imha edilmesi, 6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK" / "Kanun") kapsamında titizlikle yönetilmektedir. Bu doğrultuda, kişisel verilerinizin kullanımı ve korunmasıyla ilgili haklarınızı anlamanızı sağlamak amacıyla hazırladığımız politika ve aydınlatma metinleri aşağıda sunulmuştur.
+ 
+                 Belirtilen politika ve aydınlatma metinlerine göre, ilgili mevzuat hükümleri doğrultusunda kişisel verileriniz ve özel nitelikli kişisel verileriniz kaydedilebilir, arşivlenebilir, güncellenebilir, aktarılabilir, sınıflandırılabilir ve KVKK'ya uygun şekillerde işlenebilir.</p>
+ 
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b> 
+                <br>
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b> 
+                <br>
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b>
+                <br> 
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b> 
+                <br>
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b> 
+     
+         </div>
+    </div>
+
+    <div id="cardContainer7" class="card mx-auto" style="width: 40rem; display: none;">
+        <div class="card-body">
+            <h1>Kişisel Verilerin Korunması</h1>
+             <p>
+                 Müşterilerimizin kişisel verilerinin güvenliğine ve gizliliğine büyük önem veriyoruz. Biletinial'in sunduğu tüm hizmetlerde paylaştığınız kişisel verilerinizin işlenmesi, aktarılması, saklanması ve imha edilmesi, 6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK" / "Kanun") kapsamında titizlikle yönetilmektedir. Bu doğrultuda, kişisel verilerinizin kullanımı ve korunmasıyla ilgili haklarınızı anlamanızı sağlamak amacıyla hazırladığımız politika ve aydınlatma metinleri aşağıda sunulmuştur.
+ 
+                 Belirtilen politika ve aydınlatma metinlerine göre, ilgili mevzuat hükümleri doğrultusunda kişisel verileriniz ve özel nitelikli kişisel verileriniz kaydedilebilir, arşivlenebilir, güncellenebilir, aktarılabilir, sınıflandırılabilir ve KVKK'ya uygun şekillerde işlenebilir.</p>
+ 
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b> 
+                <br>
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b> 
+                <br>
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b>
+                <br> 
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b> 
+                <br>
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b> 
+     
+         </div>
+    </div>
+
+    <div id="cardContainer8" class="card mx-auto" style="width: 40rem; display: none;">
+        <div class="card-body">
+            <h1>Kişisel Verilerin Korunması</h1>
+             <p>
+                 Müşterilerimizin kişisel verilerinin güvenliğine ve gizliliğine büyük önem veriyoruz. Biletinial'in sunduğu tüm hizmetlerde paylaştığınız kişisel verilerinizin işlenmesi, aktarılması, saklanması ve imha edilmesi, 6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK" / "Kanun") kapsamında titizlikle yönetilmektedir. Bu doğrultuda, kişisel verilerinizin kullanımı ve korunmasıyla ilgili haklarınızı anlamanızı sağlamak amacıyla hazırladığımız politika ve aydınlatma metinleri aşağıda sunulmuştur.
+ 
+                 Belirtilen politika ve aydınlatma metinlerine göre, ilgili mevzuat hükümleri doğrultusunda kişisel verileriniz ve özel nitelikli kişisel verileriniz kaydedilebilir, arşivlenebilir, güncellenebilir, aktarılabilir, sınıflandırılabilir ve KVKK'ya uygun şekillerde işlenebilir.</p>
+ 
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b> 
+                <br>
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b> 
+                <br>
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b>
+                <br> 
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b> 
+                <br>
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b> 
+     
+         </div>
+    </div>
+
+    <div id="cardContainer9" class="card mx-auto" style="width: 40rem; display: none;">
+        <div class="card-body">
+            <h1>Kişisel Verilerin Korunması</h1>
+             <p>
+                 Müşterilerimizin kişisel verilerinin güvenliğine ve gizliliğine büyük önem veriyoruz. Biletinial'in sunduğu tüm hizmetlerde paylaştığınız kişisel verilerinizin işlenmesi, aktarılması, saklanması ve imha edilmesi, 6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK" / "Kanun") kapsamında titizlikle yönetilmektedir. Bu doğrultuda, kişisel verilerinizin kullanımı ve korunmasıyla ilgili haklarınızı anlamanızı sağlamak amacıyla hazırladığımız politika ve aydınlatma metinleri aşağıda sunulmuştur.
+ 
+                 Belirtilen politika ve aydınlatma metinlerine göre, ilgili mevzuat hükümleri doğrultusunda kişisel verileriniz ve özel nitelikli kişisel verileriniz kaydedilebilir, arşivlenebilir, güncellenebilir, aktarılabilir, sınıflandırılabilir ve KVKK'ya uygun şekillerde işlenebilir.</p>
+ 
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b> 
+                <br>
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b> 
+                <br>
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b>
+                <br> 
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b> 
+                <br>
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b> 
+     
+         </div>
+    </div>
+
+    <div id="cardContainer10" class="card mx-auto" style="width: 40rem; display: none;">
+        <div class="card-body">
+            <h1>Kişisel Verilerin Korunması</h1>
+             <p>
+                 Müşterilerimizin kişisel verilerinin güvenliğine ve gizliliğine büyük önem veriyoruz. Biletinial'in sunduğu tüm hizmetlerde paylaştığınız kişisel verilerinizin işlenmesi, aktarılması, saklanması ve imha edilmesi, 6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK" / "Kanun") kapsamında titizlikle yönetilmektedir. Bu doğrultuda, kişisel verilerinizin kullanımı ve korunmasıyla ilgili haklarınızı anlamanızı sağlamak amacıyla hazırladığımız politika ve aydınlatma metinleri aşağıda sunulmuştur.
+ 
+                 Belirtilen politika ve aydınlatma metinlerine göre, ilgili mevzuat hükümleri doğrultusunda kişisel verileriniz ve özel nitelikli kişisel verileriniz kaydedilebilir, arşivlenebilir, güncellenebilir, aktarılabilir, sınıflandırılabilir ve KVKK'ya uygun şekillerde işlenebilir.</p>
+ 
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b> 
+                <br>
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b> 
+                <br>
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b>
+                <br> 
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b> 
+                <br>
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b> 
+     
+         </div>
+    </div>
+
+
+    <div id="cardContainer11" class="card mx-auto" style="width: 40rem; display: none;">
+        <div class="card-body">
+            <h1>Kişisel Verilerin Korunması</h1>
+             <p>
+                 Müşterilerimizin kişisel verilerinin güvenliğine ve gizliliğine büyük önem veriyoruz. Biletinial'in sunduğu tüm hizmetlerde paylaştığınız kişisel verilerinizin işlenmesi, aktarılması, saklanması ve imha edilmesi, 6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK" / "Kanun") kapsamında titizlikle yönetilmektedir. Bu doğrultuda, kişisel verilerinizin kullanımı ve korunmasıyla ilgili haklarınızı anlamanızı sağlamak amacıyla hazırladığımız politika ve aydınlatma metinleri aşağıda sunulmuştur.
+ 
+                 Belirtilen politika ve aydınlatma metinlerine göre, ilgili mevzuat hükümleri doğrultusunda kişisel verileriniz ve özel nitelikli kişisel verileriniz kaydedilebilir, arşivlenebilir, güncellenebilir, aktarılabilir, sınıflandırılabilir ve KVKK'ya uygun şekillerde işlenebilir.</p>
+ 
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b> 
+                <br>
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b> 
+                <br>
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b>
+                <br> 
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b> 
+                <br>
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b> 
+     
+         </div>
+    </div>
+
+    <div id="cardContainer12" class="card mx-auto" style="width: 40rem; display: none;">
+        <div class="card-body">
+            <h1>Kişisel Verilerin Korunması</h1>
+             <p>
+                 Müşterilerimizin kişisel verilerinin güvenliğine ve gizliliğine büyük önem veriyoruz. Biletinial'in sunduğu tüm hizmetlerde paylaştığınız kişisel verilerinizin işlenmesi, aktarılması, saklanması ve imha edilmesi, 6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK" / "Kanun") kapsamında titizlikle yönetilmektedir. Bu doğrultuda, kişisel verilerinizin kullanımı ve korunmasıyla ilgili haklarınızı anlamanızı sağlamak amacıyla hazırladığımız politika ve aydınlatma metinleri aşağıda sunulmuştur.
+ 
+                 Belirtilen politika ve aydınlatma metinlerine göre, ilgili mevzuat hükümleri doğrultusunda kişisel verileriniz ve özel nitelikli kişisel verileriniz kaydedilebilir, arşivlenebilir, güncellenebilir, aktarılabilir, sınıflandırılabilir ve KVKK'ya uygun şekillerde işlenebilir.</p>
+ 
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b> 
+                <br>
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b> 
+                <br>
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b>
+                <br> 
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b> 
+                <br>
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b> 
+     
+         </div>
+    </div>
+
+    <div id="cardContainer13" class="card mx-auto" style="width: 40rem; display: none;">
+        <div class="card-body">
+            <h1>Kişisel Verilerin Korunması</h1>
+             <p>
+                 Müşterilerimizin kişisel verilerinin güvenliğine ve gizliliğine büyük önem veriyoruz. Biletinial'in sunduğu tüm hizmetlerde paylaştığınız kişisel verilerinizin işlenmesi, aktarılması, saklanması ve imha edilmesi, 6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK" / "Kanun") kapsamında titizlikle yönetilmektedir. Bu doğrultuda, kişisel verilerinizin kullanımı ve korunmasıyla ilgili haklarınızı anlamanızı sağlamak amacıyla hazırladığımız politika ve aydınlatma metinleri aşağıda sunulmuştur.
+ 
+                 Belirtilen politika ve aydınlatma metinlerine göre, ilgili mevzuat hükümleri doğrultusunda kişisel verileriniz ve özel nitelikli kişisel verileriniz kaydedilebilir, arşivlenebilir, güncellenebilir, aktarılabilir, sınıflandırılabilir ve KVKK'ya uygun şekillerde işlenebilir.</p>
+ 
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b> 
+                <br>
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b> 
+                <br>
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b>
+                <br> 
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b> 
+                <br>
+                <b><h6><a href="Kişisel Verilerin Korunması" style="color: black;">Kişisel Verilerin Korunması ve İşlenmesi (Kvkk) Politikası</a></h6></b> 
+     
+         </div>
+    </div>
+
+    <footer class="bg-dark text-white pt-3 pb-2" id="Contact" style="padding-top: 100px;padding-bottom: 100px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h5>SOCIAL MEDIA</h5>
+        <p>Accessing social media accounts with just one click.</p>
+        <div class="text-center">
+        <ul class="list-unstyled d-flex justify-content-between ">
+          <li><a href="#" style="color: white; text-decoration: none;"><i class="fab fa-facebook"></i> Facebook</a></li>
+          <li><a href="#" style="color: white; text-decoration: none;"><i class="fab fa-twitter"></i> Twitter</a></li>
+          <li><a href="#" style="color: white; text-decoration: none;"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+          <li><a href="#" style="color: white; text-decoration: none;"><i class="fab fa-instagram"></i> Instagram</a></li>
+        </ul>
+      </div>
+      </div>
+      <div class="col-md-4">
+        <h5>CUSTOMER HOTLINE</h5>
+        <p>Call us for better assistance between 09.00-17.00.</p>
+        <div class="text-center">
+        <i class="fas fa-phone " style="color: white;"> 0850 0000 0000</i>  
+      </div>
+      </div>
+      <div class="col-md-4">
+        <h5>EMAIL</h5>
+        <p>Email us for respond in maximum (3-5) business days.</p>
+        <div class="text-center">
+        <i class="far fa-envelope" style="color: white; margin-right: 10px;"> otokom@gmail.com</i>
+      </div>
+      </div>
+      <div class="col-md-4">
+          <br>
+          <a href="Kvk" style="text-decoration: none; " class="text-white">KVK METNİ</a>    
+          <div class="text-center">
+        </div>
+        </div>
+        <div class="col-md-4">
+          <br>
+          <a href="Kvk" style="text-decoration: none; " class="text-white">HAKKINDA</a>    
+          <div class="text-center">
+        </div>
+        </div>
+        <div class="col-md-4">
+          <br>
+          <a href="Kvk" style="text-decoration: none; " class="text-white">YASAL HAKLAR</a>    
+          <div class="text-center">
+        </div>
+        </div>
+    </div>
+  </div>
+
+
+</footer>
+
+</main>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+       window.addEventListener('DOMContentLoaded', (event) => {
+    const sidebarItems = document.querySelectorAll('#sidebarMenu .list-group-item');
+    const contentContainers = Array.from(document.querySelectorAll('[id^="cardContainer"]'));
+
+    sidebarItems.forEach((item, index) => {
+        item.addEventListener('click', () => {
+            const activeItem = document.querySelector('.list-group-item.active');
+            if (activeItem) {
+                activeItem.classList.remove('active');
+            }
+            item.classList.add('active');
+
+            const contentId = item.getAttribute('data-content');
+            contentContainers.forEach((container, index) => {
+                container.style.display = index + 1 == parseInt(contentId) ? 'block' : 'none';
+            });
+        });
+    });
+});
+
+
+       
+    </script>
+
+</body>
+
+</html>
