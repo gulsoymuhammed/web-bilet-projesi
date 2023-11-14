@@ -48,7 +48,7 @@ body {
     /* height:200vh; */
 }
 
-.section {
+section {
     padding: 3.5rem 7%;
 }
 
@@ -63,7 +63,34 @@ body {
     cursor: pointer;
     border-color: var(--black-color);
 }
+.btn-tümünü-incele{
+    margin-top: 1rem;
+    display: inline-block;
+    padding: 2rem 3.75rem;
+    border-radius: 30rem;
+    font-size: 1.7rem;
+    color: var(--black-color);
+    background-color: #fff;
+    cursor: pointer;
+    border-color: var(--black-color);
+    float: right;
+}
 
+.kaydirma-btn{
+    margin-top: 1rem;
+    display: inline-block;
+    padding: 1.2rem 1.8rem;
+    border-radius: 30rem;
+    font-size: 1.7rem;
+    color: var(--black-color);
+    background-color: #fff;
+    cursor: pointer;
+    border-color: var(--black-color);
+    float: right;
+
+    margin-top: 2rem;
+    margin-left: 0.4rem;
+}
 .btn:hover {
     opacity: 0.9;
 }
@@ -100,7 +127,7 @@ body {
     box-shadow: 0px 0px 17px -2px rgba(0, 0, 0, 0.75);
     /* z-index: 1000; */
     position: absolute;
-}
+}   
 
 .header .navbar a {
     margin: 0 1rem;
@@ -136,10 +163,6 @@ body {
 /*! home start */
 .home {
     min-height: 100vh;
-    /* background:url(../images/konser1.jpg)no-repeat; */
-    /* background-size: cover;
-    background-position: center; */
-    /* margin-top: -14.5rem; */
     display: flex;
     align-items: center;
 }
@@ -166,13 +189,24 @@ body {
 
 
 /*! geçmiş start */
-.geçmiş .box-container {
+.geçmiş .kaydirma{
+    display: flex;
+    justify-content: right;
+    align-items:baseline ;
+}
+
+.geçmiş .box-container,.tiyatro .box-container,.konser .box-container,.sinema .box-container{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
     gap: 1.5rem;
 }
-
-.geçmiş .box-container .box {
+.geçmiş .tumunu-sec,.tiyatro .tumunu-sec,.konser .tumunu-sec,.sinema .tumunu-sec{
+    display: flex;
+    justify-content: space-between;
+    align-items:baseline ;
+    
+}
+.geçmiş .box-container .box,.tiyatro .box-container .box, .konser .box-container .box,.sinema .box-container .box{
     padding: 3rem;
 
     border-radius: 2rem;
@@ -185,12 +219,12 @@ body {
 }
 
 
-.geçmiş .box-container .box img {
+.geçmiş .box-container .box img, .tiyatro .box-container .box img, .konser .box-container .box img,.sinema .box-container .box img {
     width: 100%;
     object-fit: cover;
 }
 
-.geçmiş .box-container .box h3 {
+.geçmiş .box-container .box h3,.tiyatro .box-container .box h3,.konser .box-container .box h3, .sinema .box-container .box h3 {
     font-size: 3rem;
     padding: 1rem 0;
     color: #ccc;
