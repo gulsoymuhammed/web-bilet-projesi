@@ -71,6 +71,7 @@ div.content {
   }
 }
 
+
 .footer{
     background-color: #24262b;
     padding: 7rem 0;
@@ -114,7 +115,7 @@ div.content {
 }
 
 .footer-col ul li a:hover{
-    color:var(--white-color);
+    color:white;
     padding-left: 0.8rem;
 }
 .footer-col .social-links a{
@@ -131,7 +132,7 @@ div.content {
 }
 
 .footer-col .social-links a:hover{
-    color: #24262b;
+    color: white;
     background-color: var(--white-color);
 }
 @media(max-width:76.7rem){
@@ -149,33 +150,49 @@ div.content {
 }
 
 
+
+.header-login{
+    background-color: white;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 7%;
+    height: 7rem;
+    margin:2rem 7%;
+    border-radius: 30rem;
+    box-shadow: 0px 0px 17px -2px rgba(0,0,0,0.75);
+    z-index: 1000;
+}
+
+.header-login .navbar a{
+    margin:0 1rem;
+    font-size: 1.6rem;
+    color: var(--black-color);
+    border: 0.1rem solid transparent;
+}
+
+
+
+.header-login .buttons button{
+    cursor:pointer;
+    font-size: 2.5rem;
+    margin-left: 2rem;
+    background-color: transparent;
+}
+
+
 </style>
 
 <body>
 
     <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav">
-                <li class="nav-item active">
-                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Features</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Pricing</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                </li>
-              </ul>
-            </div>
-          </nav>
+      <nav class="navbar">
+        <a href="#">Konser </a>
+        <a href="#">Tiyatro</a>
+        <a href="#">Film</a>
+        <a href="#">Bilet Al </a>
+        <a href="iletisim.html">İletişim </a>
+    </nav>
     
         <br>
 
