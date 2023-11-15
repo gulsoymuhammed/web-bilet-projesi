@@ -109,9 +109,9 @@ section {
 }
 
 /*! header start */
-.header .logo img {
+.header .logo a img {
     height: 7rem;
-}
+} 
 
 .header {
     background-color: white;
