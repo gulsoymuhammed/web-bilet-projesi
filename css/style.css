@@ -229,18 +229,13 @@ section {
     overflow: hidden;
 }
 .geçmiş .box-container .box .box-head img:hover, .tiyatro .box-container .box .box-head img:hover ,.sinema .box-container .box .box-head img:hover, .konser .box-container .box .box-head img:hover{
-    height: 410px;
-    width: 400px;
     transform: scale(1.2);
-    overflow: hidden;
-    justify-content: center;
-    align-items: center;
 }
 
 .geçmiş .box-container .box img, .tiyatro .box-container .box img, .konser .box-container .box img,.sinema .box-container .box img {
     width: 100%;
     object-fit: cover;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .geçmiş .box-container .box h3,.tiyatro .box-container .box h3,.konser .box-container .box h3, .sinema .box-container .box h3 {
