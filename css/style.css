@@ -322,6 +322,10 @@ ul{
     transition: all 0.5s ease;
 }
 
+.main-space{
+    height: 50px;
+}
+
 .footer-col .social-links a:hover{
     color: #24262b;
     background-color: var(--white-color);
