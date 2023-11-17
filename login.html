@@ -28,7 +28,7 @@
             <a href="#">Tiyatro</a>
             <a href="#">Film</a>
             <a href="#">Bilet Al </a>
-            <a href="iletisim.html">İletişim </a>
+            <a href="contact.html">İletişim </a>
         </nav>
         <div class="buttons">
             <button>
@@ -73,30 +73,30 @@
                 <div class="footer-col">
                     <h4>Kurumsal</h4>
                     <ul>
-                        <li><a href="#">Kişisel Verilerin Korunması</a></li>
-                        <li><a href="#">Sözleşme ve Politikalar</a></li>
-                        <li><a href="#">Entegre Yönetim Sistemi Politikası</a></li>
-                        <li><a href="#">Hakkımızda</a></li>
-                        <li><a href="#">Müşteri Hizmetleri</a></li>
-                        <li><a href="#">Çerez Aydınlatma Metni</a></li>
-                        <li><a href="#">Online Ödeme Koşulları</a></li>
-                        <li><a href="#">İletişim</a></li>
+                        <li><a href="contact.html">Kişisel Verilerin Korunması</a></li>
+                        <li><a href="contact.html">Sözleşme ve Politikalar</a></li>
+                        <li><a href="contact.html">Entegre Yönetim Sistemi Politikası</a></li>
+                        <li><a href="contact.html">Hakkımızda</a></li>
+                        <li><a href="contact.html">Müşteri Hizmetleri</a></li>
+                        <li><a href="contact.html">Çerez Aydınlatma Metni</a></li>
+                        <li><a href="contact.html">Online Ödeme Koşulları</a></li>
+                        <li><a href="contact.html">İletişim</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Yardım</h4>
                     <ul>
-                        <li><a href="#">SSS</a></li>
-                        <li><a href="#">İptal,İade ve Değişim</a></li>
-                        <li><a href="#">Nasıl Bilet Alınır</a></li>
-                        <li><a href="#">Biletinizi Mi Kaybettiniz?</a></li>
+                        <li><a href="contact.html">SSS</a></li>
+                        <li><a href="contact.html">İptal,İade ve Değişim</a></li>
+                        <li><a href="contact.html">Nasıl Bilet Alınır</a></li>
+                        <li><a href="contact.html">Biletinizi Mi Kaybettiniz?</a></li>
 
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Bizimle Çalışın</h4>
                     <ul>
-                        <li><a href="#">İş Başvurusu</a></li>
+                        <li><a href="contact.html">İş Başvurusu</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -121,25 +121,5 @@
 
 
 
-<script>
-   function checkFunction() {
-    var usernameValue = document.getElementById('kullaniciadi').querySelector('input').value;
-    var passwordValue = document.getElementById('sifre').querySelector('input').value;
-
-    if (usernameValue === 'Admin' && passwordValue === '1234') {
-        document.getElementById("change").innerHTML = "Giriş Yapılıyor...";
-
-        // Örnek olarak 2 saniye sonra 'Giriş Yapıldı!' mesajını gösterelim
-        setTimeout(function() {
-            document.getElementById("change").innerHTML = "Giriş Yapıldı!";
-        }, 4000);
-    } else {
-        document.getElementById("change").innerHTML = "Eksik veya Hatalı bilgi...";
-        // Kullanıcı adı veya şifre hatalıysa 2 saniye sonra "Giriş Yap" mesajını geri getir
-        setTimeout(function() {
-            document.getElementById("change").innerHTML = "Giriş Yap";
-        }, 4000);
-    }
-}
-</script>
+<script src="js/login.js"></script>
 </html>

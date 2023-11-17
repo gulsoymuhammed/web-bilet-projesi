@@ -30,7 +30,7 @@
             <a href="main.html">Tiyatro</a>
             <a href="main.html">Film</a>
             <a href="main.html">Bilet Al </a>
-            <a href="iletisim.html">İletişim </a>
+            <a href="contact.html">İletişim </a>
         </nav>
         <div class="buttons">
             <button>
@@ -564,28 +564,8 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-    <script>
-        window.addEventListener('DOMContentLoaded', (event) => {
-            const sidebarItems = document.querySelectorAll('#sidebarMenu .list-group-item');
-            const contentContainers = Array.from(document.querySelectorAll('[id^="cardContainer"]'));
-
-            sidebarItems.forEach((item, index) => {
-                item.addEventListener('click', () => {
-                    const activeItem = document.querySelector('.list-group-item.active');
-                    if (activeItem) {
-                        activeItem.classList.remove('active');
-                    }
-                    item.classList.add('active');
-
-                    const contentId = item.getAttribute('data-content');
-                    contentContainers.forEach((container, index) => {
-                        container.style.display = index + 1 == parseInt(contentId) ? 'block' : 'none';
-                    });
-                });
-            });
-        });
-    </script>
+    <script src="js/contact.js"></script>
+    
 
 </body>
 
