@@ -10,16 +10,20 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
+<style>
+</style>
+
+
 <body class="login-body">
     <header class="header-login">
         <a href="main.html" class="logo">
             <img src="images/logo.png" alt="logo" />
         </a>
         <nav class="navbar">
-            <a href="main.html">Konser </a>
-            <a href="main.html">Tiyatro</a>
-            <a href="main.html">Film</a>
-            <a href="main.html">Bilet Al </a>
+            <a href="#">Konser </a>
+            <a href="#">Tiyatro</a>
+            <a href="#">Film</a>
+            <a href="#">Bilet Al </a>
             <a href="iletisim.html">İletişim </a>
         </nav>
         <div class="buttons">
@@ -31,15 +35,16 @@
             </button>
         </div>
     </header>
+    <div class="toast-container"></div>
     <div id="body-second">
         <div class="wrapper">
             <form action="">
-                <h1>Giriş Yap</h1>
-                <div class="input-box">
+                <h1 id="change">Giriş Yap</h1>
+                <div class="input-box" id="kullaniciadi">
                     <input type="text" placeholder="Kullanıcı adı" required>
                     <i class='bx bx-user'></i>
                 </div>
-                <div class="input-box">
+                <div class="input-box" id="sifre">
                     <input type="password" placeholder="Şifre" required>
                     <i class='bx bxs-lock-alt'></i>
                 </div>
@@ -48,7 +53,7 @@
                     <a href="#">Şifrem nereye gitti?</a>
                 </div>
 
-                <button type="submit" class="btn">Giriş</button>
+                <button type="submit" class="btn" onclick="checkFunction()">Giriş</button>
 
                 <div class="register-link">
                     <p>Hesabın yok mu? Eğlenceyi kaçırma <a href="#">Kayıt ol!</a></p>
@@ -64,23 +69,23 @@
                 <div class="footer-col">
                     <h4>Kurumsal</h4>
                     <ul>
-                        <li><a href="iletisim.html">Kişisel Verilerin Korunması</a></li>
-                        <li><a href="iletisim.html">Sözleşme ve Politikalar</a></li>
-                        <li><a href="iletisim.html">Entegre Yönetim Sistemi Politikası</a></li>
-                        <li><a href="iletisim.html">Hakkımızda</a></li>
-                        <li><a href="iletisim.html">Müşteri Hizmetleri</a></li>
-                        <li><a href="iletisim.html">Çerez Aydınlatma Metni</a></li>
-                        <li><a href="iletisim.html">Online Ödeme Koşulları</a></li>
-                        <li><a href="iletisim.html">İletişim</a></li>
+                        <li><a href="#">Kişisel Verilerin Korunması</a></li>
+                        <li><a href="#">Sözleşme ve Politikalar</a></li>
+                        <li><a href="#">Entegre Yönetim Sistemi Politikası</a></li>
+                        <li><a href="#">Hakkımızda</a></li>
+                        <li><a href="#">Müşteri Hizmetleri</a></li>
+                        <li><a href="#">Çerez Aydınlatma Metni</a></li>
+                        <li><a href="#">Online Ödeme Koşulları</a></li>
+                        <li><a href="#">İletişim</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Yardım</h4>
                     <ul>
-                        <li><a href="iletisim.html">SSS</a></li>
-                        <li><a href="iletisim.html">İptal,İade ve Değişim</a></li>
-                        <li><a href="iletisim.html">Nasıl Bilet Alınır</a></li>
-                        <li><a href="iletisim.html">Biletinizi Mi Kaybettiniz?</a></li>
+                        <li><a href="#">SSS</a></li>
+                        <li><a href="#">İptal,İade ve Değişim</a></li>
+                        <li><a href="#">Nasıl Bilet Alınır</a></li>
+                        <li><a href="#">Biletinizi Mi Kaybettiniz?</a></li>
 
                     </ul>
                 </div>
@@ -109,4 +114,28 @@
 
 </body>
 
+
+
+
+<script>
+   function checkFunction() {
+    var usernameValue = document.getElementById('kullaniciadi').querySelector('input').value;
+    var passwordValue = document.getElementById('sifre').querySelector('input').value;
+
+    if (usernameValue === 'Admin' && passwordValue === '1234') {
+        document.getElementById("change").innerHTML = "Giriş Yapılıyor...";
+
+        // Örnek olarak 2 saniye sonra 'Giriş Yapıldı!' mesajını gösterelim
+        setTimeout(function() {
+            document.getElementById("change").innerHTML = "Giriş Yapıldı!";
+        }, 4000);
+    } else {
+        document.getElementById("change").innerHTML = "Eksik veya Hatalı bilgi...";
+        // Kullanıcı adı veya şifre hatalıysa 2 saniye sonra "Giriş Yap" mesajını geri getir
+        setTimeout(function() {
+            document.getElementById("change").innerHTML = "Giriş Yap";
+        }, 4000);
+    }
+}
+</script>
 </html>
