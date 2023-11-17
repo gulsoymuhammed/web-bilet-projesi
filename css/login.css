@@ -6,7 +6,7 @@
 }
 
 .login-body {
-    background: url('/images/concer.jpg') no-repeat;
+    background: url('../images/concer.jpg') no-repeat;
     background-position: center;
     background-size: cover;
     min-height: 97.5vh;
