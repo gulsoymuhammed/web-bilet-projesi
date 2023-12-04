@@ -12,7 +12,7 @@
     min-height: 97.5vh;
 }
 
-.body-second{
+.body-second {
     display: flex;
     justify-content: left;
     align-items: center;
@@ -53,7 +53,7 @@
     border-radius: 40px;
     font-size: 16px;
     padding: 20px 45px 20px 20px;
-    color:white;
+    color: white;
 }
 
 .input-box input::placeholder {
@@ -119,21 +119,21 @@
     text-decoration: underline;
 }
 
-.header-login{
+.header-login {
     background-color: white;
-    display:flex;
+    display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 7%;
     height: 7rem;
-    margin:2rem 7%;
+    margin: 2rem 7%;
     border-radius: 30rem;
-    box-shadow: 0px 0px 17px -2px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 17px -2px rgba(0, 0, 0, 0.75);
     z-index: 1000;
 }
 
-.header-login .navbar a{
-    margin:0 1rem;
+.header-login .navbar a {
+    margin: 0 1rem;
     font-size: 1.6rem;
     color: var(--black-color);
     border: 0.1rem solid transparent;
@@ -141,13 +141,90 @@
 
 
 
-.header-login .buttons button{
-    cursor:pointer;
+.header-login .buttons button {
+    cursor: pointer;
     font-size: 2.5rem;
     margin-left: 2rem;
     background-color: transparent;
 }
 
-.login-bottom-space{
+.login-bottom-space {
     height: 210px;
+}
+
+/* Gender CSS Start */
+
+.gender-choose {
+    font-size: 18px;
+}
+
+#gender-space {
+    padding-right: 3rem;
+    padding-left: 1rem;
+}
+
+#gender-first-space {
+    padding-right: 3rem;
+}
+
+.wrapper .register .input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+}
+
+/* name surname input CSS start */
+
+.input-box-nameSurname {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.input-box-nameSurname input {
+    /* width: 40%; */
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 40px;
+    font-size: 16px;
+    padding: 20px 45px 20px 20px;
+    color: white;
+    /* position: relative; */
+    flex: 1;
+}
+
+/* .input-box-nameSurname i {
+    position: absolute;
+    right: 20px;
+    top: 10%;
+    transform: translateY(-50%);
+    font-size: 20px;
+} */
+
+.input-box-nameSurname input::placeholder {
+    color: #fff;
+}
+
+.input-box-nameSurname label {
+    display: inline-block;
+    margin-right: 10px; /* İstenilen boşluk için */
+}
+
+#tcKimlikNumarasi{
+    margin-top: -2px;
+}
+
+#sozlesme{
+    font-size: 14px;
+    margin-left: 1rem;
+}
+
+#sozlesme input{
+    width: 1.2rem;
+    height: 1.2rem;
+    margin-right: 1rem;
 }
