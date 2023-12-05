@@ -24,24 +24,10 @@
 /*! base html codes */
 html {
     font-size: 62.5%;
-    overflow-x: hidden;
-    scroll-padding-top: 9rem;
-    scroll-behavior: smooth;
+    scrollbar-width: auto;
+    scrollbar-color: auto;
 }
 
-html::-webkit-scrollbar {
-    width: 1rem;
-    background-color: var(--main-color);
-}
-
-html::-webkit-scrollbar-track {
-    background-color: transparent;
-}
-
-html::-webkit-scrollbar-thumb {
-    border-radius: 2rem;
-    background-color: var(--black-color);
-}
 
 body {
     background-color: var(--main-color);
@@ -52,48 +38,8 @@ section {
     padding: 3.5rem 7%;
 }
 
-.btn {
-    margin-top: 1rem;
-    display: inline-block;
-    padding: 2rem 3.75rem;
-    border-radius: 30rem;
-    font-size: 1.7rem;
-    color: var(--black-color);
-    background-color: #fff;
-    cursor: pointer;
-    border-color: var(--black-color);
-}
-.btn-tümünü-incele{
-    margin-top: 1rem;
-    display: inline-block;
-    padding: 2rem 3.75rem;
-    border-radius: 30rem;
-    font-size: 1.7rem;
-    color: var(--black-color);
-    background-color: #fff;
-    cursor: pointer;
-    border-color: var(--black-color);
-    float: right;
-}
 
-.kaydirma-btn{
-    margin-top: 1rem;
-    display: inline-block;
-    padding: 1.2rem 1.8rem;
-    border-radius: 30rem;
-    font-size: 1.7rem;
-    color: var(--black-color);
-    background-color: #fff;
-    cursor: pointer;
-    border-color: var(--black-color);
-    float: right;
 
-    margin-top: 2rem;
-    margin-left: 0.4rem;
-}
-.btn:hover {
-    opacity: 0.9;
-}
 
 .heading {
     color: #fff;
@@ -188,67 +134,6 @@ section {
 
 
 
-/*! geçmiş start */
-.geçmiş .kaydirma{
-    display: flex;
-    justify-content: right;
-    align-items:baseline ;
-}
-
-.geçmiş .box-container,.tiyatro .box-container,.konser .box-container,.sinema .box-container{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-    gap: 1.5rem;
-}
-.geçmiş .tumunu-sec,.tiyatro .tumunu-sec,.konser .tumunu-sec,.sinema .tumunu-sec{
-    display: flex;
-    justify-content: space-between;
-    align-items:baseline ;
-    
-}
-.geçmiş .box-container .box,.tiyatro .box-container .box, .konser .box-container .box,.sinema .box-container .box{
-    /* padding: 3rem; */
-    border-style: solid;
-    border-width: 25px;
-    border-radius: 2rem;
-    background-color: #24262b;
-    border-color: #24262b;
-    min-height: 60rem;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
-    overflow: hidden;
-    position: relative;
-}
-.geçmiş .box-container .box .box-head .image-border, .tiyatro .box-container .box .box-head .image-border ,.sinema .box-container .box .box-head .image-border, .konser .box-container .box .box-head .image-border{
-    height: 47rem;
-    border-style: solid;
-    border-width: 2px;
-    border-radius: 2rem;
-    color: #ccc;
-    /* background-color: blue; */
-    overflow: hidden;
-}
-.geçmiş .box-container .box .box-head img:hover, .tiyatro .box-container .box .box-head img:hover ,.sinema .box-container .box .box-head img:hover, .konser .box-container .box .box-head img:hover{
-    transform: scale(1.2);
-}
-
-.geçmiş .box-container .box img, .tiyatro .box-container .box img, .konser .box-container .box img,.sinema .box-container .box img {
-    width: 100%;
-    object-fit: cover;
-    transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
-    
-}
-
-.geçmiş .box-container .box h3,.tiyatro .box-container .box h3,.konser .box-container .box h3, .sinema .box-container .box h3 {
-    font-size: 3rem;
-    padding: 1rem 0;
-    color: #ccc;
-}
-
-/*! geçmiş end */
-
 
 
 /*! footer start */
@@ -325,9 +210,7 @@ ul{
     transition: all 0.5s ease;
 }
 
-.main-space{
-    height: 50px;
-}
+
 
 .footer-col .social-links a:hover{
     color: #24262b;
