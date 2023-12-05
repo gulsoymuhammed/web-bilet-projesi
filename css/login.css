@@ -27,8 +27,13 @@
     color: #fff;
     border-radius: 10px;
     padding: 30px 40px;
-    margin-left: 5%;
+    margin-left: 10%;
     margin-top: 10%;
+}
+
+#wrapper-register{
+    margin-left: 39%;
+    margin-top: 5%;
 }
 
 .wrapper h1 {
@@ -211,19 +216,20 @@
 
 .input-box-nameSurname label {
     display: inline-block;
-    margin-right: 10px; /* İstenilen boşluk için */
+    margin-right: 10px;
+    /* İstenilen boşluk için */
 }
 
-#tcKimlikNumarasi{
+#tcKimlikNumarasi {
     margin-top: -2px;
 }
 
-#sozlesme{
+#sozlesme {
     font-size: 14px;
     margin-left: 1rem;
 }
 
-#sozlesme input{
+#sozlesme input {
     width: 1.2rem;
     height: 1.2rem;
     margin-right: 1rem;
