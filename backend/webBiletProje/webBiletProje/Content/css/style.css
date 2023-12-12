@@ -13,6 +13,18 @@
 
 }
 
+#konser-column {
+    background-image: url('/Content/images/konser.jpg');
+}
+
+#film-column {
+    background-image: url('/Content/images/filmler/testere10.jpg');
+}
+
+#tiyatro-column {
+    background-image: url('/Content/images/tiyatro.jpg');
+}
+
 :root {
     --main-color: #8EACCD;
     --black-color: #0e0e0e;
@@ -37,6 +49,8 @@ body {
 section {
     padding: 3.5rem 7%;
 }
+
+
 
 
 
