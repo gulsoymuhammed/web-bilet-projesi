@@ -23,11 +23,26 @@
 
 
 <body class="login-body">
-
-    <!--! header section start -->
-    @Html.Partial("_navbar")
-    <!--! header section end -->
-
+    <header class="header-login">
+        <a href="main.html" class="logo">
+            <img src="images/logo.png" alt="logo" />
+        </a>
+        <nav class="navbar">
+            <a href="#">Konser </a>
+            <a href="#">Tiyatro</a>
+            <a href="#">Film</a>
+            <a href="#">Bilet Al </a>
+            <a href="iletisim.html">İletişim </a>
+        </nav>
+        <div class="buttons">
+            <button>
+                <a href="login.html"><i class="fa-regular fa-user" style="color: #000000;"></i></a>
+            </button>
+            <button>
+                <i class="fa-solid fa-cart-shopping" style="color: #000000;"></i>
+            </button>
+        </div>
+    </header>
     <div class="toast-container"></div>
     <div id="body-second">
         <div class="wrapper" id="wrapper-register">
