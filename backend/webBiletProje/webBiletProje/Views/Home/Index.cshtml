@@ -31,26 +31,7 @@
 <body class="main-body">
     <!--! header section start -->
     <div class="main-body-first-phase">
-        <header class="header">
-            <a href="main.html" class="logo">
-                <img src="~/Content/images/logo.png" alt="logo" />
-            </a>
-            <nav class="navbar">
-                <a href="#konser">Konser </a>
-                <a href="#tiyatro">Tiyatro</a>
-                <a href="#sinema">Sinema</a>
-                <a href="#">Bilet Al </a>
-                <a href="contact.html">İletişim </a>
-            </nav>
-            <div class="buttons">
-                <button>
-                    <a href="login.html"><i class="fa-regular fa-user" style="color: #000000;"></i></a>
-                </button>
-                <button>
-                    <i class="fa-solid fa-cart-shopping" style="color: #000000;"></i>
-                </button>
-            </div>
-        </header>
+        @Html.Partial("_navbar")
         <!--! header section end -->
         <!--! home section start -->
         <section class="home">
