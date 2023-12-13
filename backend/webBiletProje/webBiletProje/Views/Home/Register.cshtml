@@ -1,4 +1,5 @@
-﻿
+﻿@model webBiletProje.Models.User
+
 @{
     ViewBag.Title = "Register";
 }
@@ -47,15 +48,21 @@
     <div id="body-second">
         <div class="wrapper" id="wrapper-register">
             <div class="register">
-                <form action="">
+                @using (Html.BeginForm("Register", "Home", FormMethod.Post))
+                {
+              
+
                     <h1 id="change">Kayıt Ol</h1>
+
+                
+
                     <div class="input-box-nameSurname" id="name">
                         <div class="input-box">
-                            <input type="text" placeholder="İsim" required>
+                            @Html.TextBoxFor(m => m.Name)
                             <i class='bx bx-user'></i>
                         </div>
                         <div class="input-box">
-                            <input type="text" placeholder="Soyisim" required>
+                            @Html.TextBoxFor(m => m.Surname)
                             <i class='bx bx-user'></i>
                         </div>
                     </div>
@@ -64,35 +71,37 @@
                         <i class="fa-brands fa-odnoklassniki"></i>
                     </div>
                     <div class="input-box" id="e-mail">
-                        <input type="email" placeholder="E-mail" required>
+                        @Html.TextBoxFor(m => m.MailAddress)
                         <i class="fa-solid fa-square-envelope"></i>
                     </div>
                     <div class="input-box" id="phoneNumber">
-                        <input type="number" placeholder="Cep Telefonu" required>
+                        @Html.TextBoxFor(m => m.PhoneNumber)
                         <i class="fa-solid fa-phone"></i>
                     </div>
                     <div class="input-box" id="kullaniciadi">
-                        <input type="text" placeholder="Kullanıcı adı" required>
+                        @Html.TextBoxFor(m => m.Surname)
                         <i class='bx bx-user'></i>
                     </div>
                     <div class="gender-choose">
-                        <form action="" id="gender">
+                        <form asp-action="Register" method="post" id="gender">
                             <table>
                                 <tr>
                                     <td id="gender-space">Cinsiyet:</td>
                                     <td>
                                         <label id="gender-first-space">
-                                            <input type="radio" name="gender" id="radioBtn_1"
-                                                   value=1> Kadın
+                                            <input type="radio" asp-for="Sex" id="radioBtn_1" value="Kadın"> Kadın
                                         </label>
-                                        <label><input type="radio" name="gender" id="radioBtn_2" value=2> Erkek</label>
+                                        <label>
+                                            <input type="radio" asp-for="Sex" id="radioBtn_2" value="Erkek"> Erkek
+                                        </label>
                                     </td>
                                 </tr>
                             </table>
                         </form>
                     </div>
                     <div class="input-box" id="sifre">
-                        <input type="password" placeholder="Şifre" required>
+                        @Html.TextBoxFor(m => m.Password)
+                        <i class="fa-solid fa-phone"></i>
                         <i class='bx bxs-lock-alt'></i>
                     </div>
                     <div class="input-box" id="sifre_check">
@@ -112,7 +121,8 @@
                     <div class="register-link">
                         <p>Zaten üyeyim <a href="login.html">Giriş Yap!</a></p>
                     </div>
-                </form>
+
+                }
             </div>
         </div>
     </div>
@@ -171,27 +181,5 @@
 
 
 
-
-<script>
-    function checkFunction() {
-        var usernameValue = document.getElementById('kullaniciadi').querySelector('input').value;
-        var passwordValue = document.getElementById('sifre').querySelector('input').value;
-
-        if (usernameValue === 'Admin' && passwordValue === '1234') {
-            document.getElementById("change").innerHTML = "Giriş Yapılıyor...";
-
-            // Örnek olarak 2 saniye sonra 'Giriş Yapıldı!' mesajını gösterelim
-            setTimeout(function () {
-                document.getElementById("change").innerHTML = "Giriş Yapıldı!";
-            }, 4000);
-        } else {
-            document.getElementById("change").innerHTML = "Eksik veya Hatalı bilgi...";
-            // Kullanıcı adı veya şifre hatalıysa 2 saniye sonra "Giriş Yap" mesajını geri getir
-            setTimeout(function () {
-                document.getElementById("change").innerHTML = "Giriş Yap";
-            }, 4000);
-        }
-    }
-</script>
 
 </html>
