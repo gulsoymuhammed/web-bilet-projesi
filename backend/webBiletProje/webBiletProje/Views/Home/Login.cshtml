@@ -28,14 +28,14 @@
     <div class="toast-container"></div>
     <div id="body-second">
         <div class="wrapper">
-            <form action="">
+            <form method="post" action="@Url.Action("Login", "Home")">
                 <h1 id="change">Giriş Yap</h1>
                 <div class="input-box" id="kullaniciadi">
-                    <input type="text" placeholder="Kullanıcı adı" required>
+                    <input type="text" name="userName" placeholder="Kullanıcı adı" required>
                     <i class='bx bx-user'></i>
                 </div>
                 <div class="input-box" id="sifre">
-                    <input type="password" placeholder="Şifre" required>
+                    <input type="password" name="password" placeholder="Şifre" required>
                     <i class='bx bxs-lock-alt'></i>
                 </div>
                 <div class="remember-forgot">
@@ -107,5 +107,5 @@
 
 
 
-<script src="js/login.js"></script>
+@*<script src="js/login.js"></script>*@
 </html>

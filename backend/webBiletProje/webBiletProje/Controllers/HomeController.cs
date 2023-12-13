@@ -25,10 +25,30 @@ namespace webBiletProje.Controllers
         {
             return View();
         }
+
         public ActionResult Login()
         {
             return View();
         }
+
+        [HttpPost]
+        public async Task<ActionResult> Login(string userName, string password)
+        {
+            var user = await _context.Set<User>().SingleOrDefaultAsync(u => u.UserName == userName && u.Password == password);
+
+            if (user != null)
+            {
+                // Login successful, redirect to Index view
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                // Login failed, you might want to show an error message or redirect back to the login page
+                ViewBag.ErrorMessage = "Invalid username or password.";
+                return View();
+            }
+        }
+
         public ActionResult Register()
         {
             return View();
