@@ -8,6 +8,7 @@ namespace webBiletProje.Models
 {
     public class User
     {
+        [Key] // Specify the primary key
         public int UserId { get; set; }
 
         [Required(ErrorMessage = "Name is required.")]
