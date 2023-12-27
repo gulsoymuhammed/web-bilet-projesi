@@ -19,6 +19,6 @@ namespace webBiletProje.Data
         {
         }
 
-        public System.Data.Entity.DbSet<webBiletProje.Models.Tickets> Tickets { get; set; }
+        public System.Data.Entity.DbSet<webBiletProje.Models.Ticket> Tickets { get; set; }
     }
 }

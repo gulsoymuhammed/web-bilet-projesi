@@ -12,7 +12,7 @@ namespace webBiletProje.Models
         {
             
         }
-        public DbSet<Tickets> Tickets { get; set; }
+        //public DbSet<Ticket> Tickets { get; set; }
         public DbSet<OrderTable> OrderTables { get; set; }
         public DbSet<User> Users { get; set; }
     }

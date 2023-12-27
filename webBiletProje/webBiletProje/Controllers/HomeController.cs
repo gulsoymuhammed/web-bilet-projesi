@@ -14,6 +14,13 @@ namespace webBiletProje.Controllers
     public class HomeController : Controller
     {
 
+        private TicketDB test = new TicketDB();
+        public ActionResult film()
+        {
+            return View(test.Tickets.ToList());
+        }
+
+
         private readonly DbContext _context;
 
         public HomeController()
