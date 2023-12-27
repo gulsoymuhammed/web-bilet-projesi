@@ -1,0 +1,410 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600&display=swap');
+
+* {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: 0.3s ease;
+
+}
+
+#konser-column {
+    background-image: url('/Content/images/konser.jpg');
+}
+
+#film-column {
+    background-image:url('/Content/images/filmler/testere10.jpg');
+}
+
+#tiyatro-column {
+    background-image: url('/Content/images/tiyatro.jpg');
+}
+
+:root {
+    --main-color: #8EACCD;
+    --black-color: #0e0e0e;
+    --white-color: #ffff;
+    --border: 0.1rem solid rgba(255, 255, 255, 0.4)
+}
+
+
+/*! base html codes */
+html {
+    font-size: 62.5%;
+    scrollbar-width: auto;
+    scrollbar-color: auto;
+}
+
+
+body {
+    background-color: var(--main-color);
+    /* height:200vh; */
+}
+
+section {
+    padding: 3.5rem 7%;
+}
+
+
+
+
+.heading {
+    color: #fff;
+    text-transform: capitalize;
+    padding: 1rem;
+    font-size: 4rem;
+    margin-top: 10rem;
+    margin-bottom: 3rem;
+}
+
+.logo img {
+    height: 6rem;
+}
+
+/*! header start */
+.header .logo a img {
+    height: 7rem;
+} 
+
+.header {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 7%;
+    height: 7rem;
+    /* margin: 2% 2% 2% 2%; */
+    margin-left: 26%;
+    margin-top: 2%;
+    border-radius: 30rem;
+    box-shadow: 0px 0px 17px -2px rgba(0, 0, 0, 0.75);
+    /* z-index: 1000; */
+    position: absolute;
+}   
+
+.header .navbar a {
+    margin: 0 1rem;
+    font-size: 1.6rem;
+    color: var(--black-color);
+    border: 0.1rem solid transparent;
+}
+
+
+.header .buttons button {
+    cursor: pointer;
+    font-size: 2.5rem;
+    margin-left: 2rem;
+    background-color: transparent;
+}
+
+/*! header end */
+
+.main-body {
+    background-color: var(--main-color);
+    height:200vh;
+}
+
+.main-body-first-phase{
+    background: url(../images/marvel.jpeg) no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: 97.5vh;
+    height: 100vh;
+    position: relative;
+}
+
+/*! home start */
+.home {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.home .content {
+    max-width: 60rem;
+}
+
+.home .content h3 {
+    font-size: 6rem;
+    color: #fff;
+}
+
+.home .content p {
+    font-size: 2rem;
+    font-weight: 300;
+    line-height: 1.8;
+    padding: 1rem 0;
+    color: #ccc;
+}
+
+/*! home end */
+
+/*! footer start */
+
+.container{
+    max-width: 117rem;
+    
+    margin:auto;
+}
+ul{
+    list-style: none;
+}
+.row{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.footer{
+    background-color: #24262b;
+    padding: 7rem 0;
+}
+
+.footer-col{
+    width:25%;
+    padding: 0 1.5rem;
+}
+
+.footer-col h4{
+    font-size: 1.8rem;
+    color: var(--white-color);
+    text-transform: capitalize;
+    margin-bottom: 3.5rem;
+    font-weight: 500;
+    position: relative;
+}
+.footer-col h4::before{
+    content: '';
+    position: absolute;
+    Left: 0;
+    bottom: -1rem;
+    background-color: #e91e63;
+    height: 0.2rem;
+    box-sizing: border-box;
+    width: 6rem;
+}
+.footer-col ul li:not(:last-child){
+    margin-bottom: 1rem;
+}
+.footer-col ul li a{
+    font-size: 1.6rem;
+    text-transform: capitalize;
+    color: var(--black-color);
+    text-decoration: none;
+    font-weight: 300;
+    color: #bbbbbb;
+    display: block;
+    transition:all 0.3s ease;
+}
+
+.footer-col ul li a:hover{
+    color:var(--white-color);
+    padding-left: 0.8rem;
+}
+.footer-col .social-links a{
+    display:inline-block;
+    height: 4rem;
+    width: 4rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 0 1rem 1rem 0;
+    text-align: center;
+    line-height: 4rem;
+    border-radius: 50%;
+    color: var(--white-color);
+    transition: all 0.5s ease;
+}
+
+
+.footer-col .social-links a:hover{
+    color: #24262b;
+    background-color: var(--white-color);
+}
+@media(max-width:76.7rem){
+    .footer-col{
+        width:50%;
+        margin-bottom: 3rem;
+    }
+}
+
+@media(max-width:57.4rem){
+    .footer-col{
+        width:100%;
+    }
+}
+
+/*! footer end */
+/*Carousel*/
+
+.column {
+    float: left;
+    width: 33.33%;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.cards-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.card img {
+    width: 45rem;
+}
+
+.card {
+    margin: 0 0.5em;
+    box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
+    border: none;
+    border-radius: 0;
+}
+
+.carousel-inner {
+    padding: 1em;
+}
+
+
+.grid-item {
+    margin-right: 10px; /* You can adjust the value to set the desired space */
+}
+
+.carousel-inner .images-wrapper img {
+    height: 450px; /* Adjust the value to your desired height */
+}
+
+
+
+@media (min-width: 768px) {
+    .card img {
+        height: 20em; /* Increase the height value further to make the images even larger */
+    }
+}
+
+@media (max-width: 767px) {
+    .carousel-inner .images-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+        .carousel-inner .images-wrapper img {
+            margin-bottom: 1em; /* Adjust the margin as needed */
+        }
+}
+
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 0.5fr 0.5fr 0.5fr 0.5fr;
+    gap: 1em;
+    margin-bottom: 6em;
+}
+
+.grid-item {
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+    .grid-item.large {
+        grid-row: span 2;
+    }
+
+    .grid-item img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: cover;
+    }
+
+.images-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+    .images-wrapper img {
+        flex: 0 0 auto;
+    }
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+    }
+}
+
+
+
+
+.column {
+    float: left;
+    width: 33.33%;
+    padding: 10px;
+    height: 600px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    text-align: center; /* Center the text within the column */
+}
+
+.column img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.column-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    text-align: center;
+    color: #fff;
+}
+
+.button-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.btn-in-column {
+    background-color: #4c5b6c;
+    color: #fff;
+    padding: 25px 50px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+    .btn-in-column:hover {
+        color: #e1e1e1;
+    }
+
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+
