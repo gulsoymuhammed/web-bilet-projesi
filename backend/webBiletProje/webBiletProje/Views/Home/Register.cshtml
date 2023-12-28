@@ -19,10 +19,6 @@
     <link rel="stylesheet" href="~/Content/css/style.css">
 </head>
 
-<style>
-</style>
-
-
 <body class="login-body">
     <header class="header-login">
         <a href="main.html" class="logo">
@@ -48,70 +44,58 @@
     <div id="body-second">
         <div class="wrapper" id="wrapper-register">
             <div class="register">
-                @using (Html.BeginForm("Register", "Home", FormMethod.Post))
-                {
-
-
+                <form method="post" action="@Url.Action("Register", "Home")">
+                    @Html.AntiForgeryToken()
                     <h1 id="change">Kayıt Ol</h1>
-
-
-
                     <div class="input-box-nameSurname" id="name">
                         <div class="input-box">
-                            @Html.TextBoxFor(m => m.Name)
+                            <input type="text" name="Name" placeholder="İsim" required>
                             <i class='bx bx-user'></i>
                         </div>
                         <div class="input-box">
-                            @Html.TextBoxFor(m => m.Surname)
+                            <input type="text" name="Surname" placeholder="Soyisim" required>
                             <i class='bx bx-user'></i>
                         </div>
                     </div>
-                    <div class="input-box" id="tcKimlikNumarasi">
-                        <input type="text" placeholder="TC Kimlik Numarası" required>
-                        <i class="fa-brands fa-odnoklassniki"></i>
-                    </div>
                     <div class="input-box" id="e-mail">
-                        @Html.TextBoxFor(m => m.MailAddress)
+                        <input type="email" name="MailAddress" placeholder="E-mail" required>
                         <i class="fa-solid fa-square-envelope"></i>
                     </div>
                     <div class="input-box" id="phoneNumber">
-                        @Html.TextBoxFor(m => m.PhoneNumber)
+                        <input type="number" name="PhoneNumber" placeholder="Cep Telefonu" required>
                         <i class="fa-solid fa-phone"></i>
                     </div>
                     <div class="input-box" id="kullaniciadi">
-                        @Html.TextBoxFor(m => m.Surname)
+                        <input type="text" name="UserName" placeholder="Kullanıcı adı" required>
                         <i class='bx bx-user'></i>
                     </div>
                     <div class="gender-choose">
-                        <form asp-action="Register" method="post" id="gender">
-                            <table>
-                                <tr>
-                                    <td id="gender-space">Cinsiyet:</td>
-                                    <td>
-                                        <label id="gender-first-space">
-                                            <input type="radio" asp-for="Sex" id="radioBtn_1" value="Kadın"> Kadın
-                                        </label>
-                                        <label>
-                                            <input type="radio" asp-for="Sex" id="radioBtn_2" value="Erkek"> Erkek
-                                        </label>
-                                    </td>
-                                </tr>
-                            </table>
-                        </form>
+                        <table>
+                            <tr>
+                                <td id="gender-space">Cinsiyet:</td>
+                                <td>
+                                    <label for="radioBtn_1">Kadın</label>
+                                    <input type="radio" name="sex" id="radioBtn_1" value="Kadın">
+
+                                    <label for="radioBtn_2">Erkek</label>
+                                    <input type="radio" name="sex" id="radioBtn_2" value="Erkek">
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="input-box" id="address">
+                        <input type="text" name="Address" placeholder="Adres" required>
+                        <i class='bx bx-user'></i>
+                    </div>
+                    <div class="input-box" id="city">
+                        <input type="text" name="City" placeholder="Şehir" required>
+                        <i class='bx bx-user'></i>
                     </div>
                     <div class="input-box" id="sifre">
-                        @Html.TextBoxFor(m => m.Password)
-                        <i class="fa-solid fa-phone"></i>
-                        <i class='bx bxs-lock-alt'></i>
-                    </div>
-                    <div class="input-box" id="sifre_check">
-                        <input type="password" placeholder="Şifreni doğrula" required>
+                        <input type="password" name="Password" placeholder="Şifre" required>
                         <i class='bx bxs-lock-alt'></i>
                     </div>
 
-                    <div class="input-box-sozlesme" id="sozlesme">
-                        <input type="checkbox" required>Sözleşmeyi Kabul Et!
-                    </div>
                     <br>
                     <button type="submit" class="btn">Kayıt Ol</button>
 
@@ -121,8 +105,7 @@
                     <div class="register-link">
                         <p>Zaten üyeyim <a href="login.html">Giriş Yap!</a></p>
                     </div>
-
-                }
+                </form>
             </div>
         </div>
     </div>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -15,6 +16,7 @@ namespace webBiletProje.Controllers
     {
 
         private readonly DbContext _context;
+        private DataContext db = new DataContext();
 
         public HomeController()
         {
@@ -25,7 +27,7 @@ namespace webBiletProje.Controllers
         {
             return View();
         }
-
+        [HttpGet]
         public ActionResult Login()
         {
             return View();
@@ -38,17 +40,15 @@ namespace webBiletProje.Controllers
 
             if (user != null)
             {
-                // Login successful, redirect to Index view
                 return RedirectToAction("Index");
             }
             else
             {
-                // Login failed, you might want to show an error message or redirect back to the login page
                 ViewBag.ErrorMessage = "Invalid username or password.";
                 return View();
             }
         }
-
+        [HttpGet]
         public ActionResult Register()
         {
             return View();
@@ -56,45 +56,26 @@ namespace webBiletProje.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Register(User userModel)
+        public ActionResult Register(string Name, string Surname, string MailAddress, string UserName, string PhoneNumber, string sex, string Password, string City, string Address)
         {
-            if (ModelState.IsValid)
+
+            var newUser = new User
             {
-                try
-                {
-                    // Assuming you have a DbContext class named DataContext
-                    using (var dbContext = new DataContext())
-                    {
-                        // Map User model to your entity model (assuming your entity model is named UserEntity)
-                        var userEntity = new User
-                        {
-                            Name = userModel.Name,
-                            Surname = userModel.Surname,
-                            MailAddress = userModel.MailAddress,
-                            PhoneNumber = userModel.PhoneNumber,
-                            Sex = userModel.Sex
-                        };
+                Name = Name,
+                Surname = Surname,
+                MailAddress = MailAddress,
+                PhoneNumber = PhoneNumber,
+                Sex = sex,
+                UserName = UserName,
+                Password = Password,
+                City = City,
+                Address = Address
+            };
 
-                        // Add the entity to the database
-                        dbContext.Users.Add(userEntity);
+            db.Users.Add(newUser);
+            db.SaveChanges();
 
-                        // Save changes to the database
-                        dbContext.SaveChanges();
-                    }
-
-                    // Redirect to a success or result view
-                    return RedirectToAction("Index");
-                }
-                catch (Exception ex)
-                {
-                    // Log the error, handle it, or display an error message to the user
-                    ViewBag.ErrorMessage = $"An error occurred during registration: {ex.Message}";
-                    return View();
-                }
-            }
-
-            // If the model state is not valid, return the registration view with validation errors
-            return View(userModel);
+            return RedirectToAction("Index");
         }
 
 
