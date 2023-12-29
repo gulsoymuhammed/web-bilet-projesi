@@ -1,0 +1,28 @@
+﻿@model IEnumerable<webBiletProje.Models.Ticket>
+
+
+<div class="main col-lg-9">
+    <h3><img src="https://img.icons8.com/?size=256&id=18638&format=png"> Sinema Biletleri</h3>
+    @foreach (var ticket in Model)
+    {
+        <div id="cardContainer" class="card-mx-auto">
+            <div class="info_cinema">
+
+                <a href="@Url.Action("Create", "Films", new { id = ticket.TicketId })" name="next">Add a ticket</a>
+            </div>
+            <div class="ticket" id="ticket1">
+                <img src="~/Content/images/filmler/@ticket.TImage" alt="Ticket Image">
+                <div>
+                    <h3>@ticket.TName</h3>
+                    <p>@ticket.CurrentTicketAmount</p>
+                </div>
+
+                <div class="form-actions">
+                    <a href="@Url.Action("Delete", "Films", new { id = ticket.TicketId })" name="next">Delete</a>
+                    <a href="@Url.Action("Edit", "Films", new { id = ticket.TicketId })" name="next">Edit</a>
+                </div>
+            </div>
+        </div>
+
+    }
+</div>
