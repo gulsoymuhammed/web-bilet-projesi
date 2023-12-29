@@ -157,25 +157,28 @@
 
 <main>
     <div class="dreadcrumb">
-        <h1 title="Konser">Sinema</h1>
+        <h1 title="Konser"><li>Konser</li></h1>
     </div>
     <div class="kategori">
         <div id="etkinlikler" class="etkinlikler">
             <ul>
                 @foreach (var ticket in Model)
                 {
-                    <li>
-                        <figure>
-                            <a href=""><img src="~/Content/images/filmler/@ticket.TImage" alt="alt"></a>
-                        </figure>
-                        <h3><a href="#">@ticket.TName</a></h3>
-                    </li>
+
+                    if (ticket.Kind == "Konser")
+                    {
+                        <li>
+                            <figure>
+                                <a loading="lazy" href="@Url.Action("konserInfo", "Home", new { id = ticket.TicketId })"><img src="~/Content/images/konser/@ticket.TImage" alt="alt"></a>
+                            </figure>
+                            <h3><a href="@Url.Action("konserInfo", "Home", new { id = ticket.TicketId })">@ticket.TName</a></h3>
+                        </li>
+                    }
                 }
             </ul>
         </div>
     </div>
 </main>
-
 
 
 

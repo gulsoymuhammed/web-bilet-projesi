@@ -1,4 +1,5 @@
 @model List<webBiletProje.Models.Ticket>
+
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -159,9 +160,9 @@ img, embed, iframe, object, video {
                 {
                     <li>
                         <figure>
-                            <a href=""><img src="~/Content/images/filmler/@ticket.TImage" alt="alt"></a>
+                            <a href="@Url.Action("filmInfo", "Home",new { id=ticket.TicketId})"><img src="~/Content/images/filmler/@ticket.TImage" alt="alt"></a>
                         </figure>
-                        <h3><a href="#" >@ticket.TName</a></h3>
+                        <h3><a href="@Url.Action("filmInfo", "Home",new { id=ticket.TicketId})" >@ticket.TName</a></h3>
                     </li>
                 }
                 </ul>

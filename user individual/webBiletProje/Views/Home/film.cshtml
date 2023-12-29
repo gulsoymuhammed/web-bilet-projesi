@@ -162,15 +162,21 @@
     <div class="kategori">
         <div id="etkinlikler" class="etkinlikler">
             <ul>
-                @foreach (var ticket in Model)
-                {
-                    <li>
-                        <figure>
-                            <a href=""><img src="~/Content/images/filmler/@ticket.TImage" alt="alt"></a>
-                        </figure>
-                        <h3><a href="#">@ticket.TName</a></h3>
-                    </li>
-                }
+                
+                    @foreach (var ticket in Model)
+                    {
+
+
+                        if (ticket.Kind == "Sinema")
+                                {
+                        <li>
+                            <figure>
+                                <a href="@Url.Action("filmInfo", "Home", new { id = ticket.TicketId })"><img src="~/Content/images/filmler/@ticket.TImage" alt="alt"></a>
+                            </figure>
+                            <h3><a href="@Url.Action("filmInfo", "Home", new { id = ticket.TicketId })">@ticket.TName</a></h3>
+                        </li>
+                            }
+                    }
             </ul>
         </div>
     </div>

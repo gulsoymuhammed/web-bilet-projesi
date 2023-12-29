@@ -20,15 +20,49 @@ namespace webBiletProje.Controllers
             return View(test.Tickets.ToList());
         }
 
+
+
+        public ActionResult filmInfo(int? id)
+        {
+
+            Ticket ticket = test.Tickets.Find(id);
+            return View(ticket);
+        }
+
+
         public ActionResult tiyatro()
         {
             return View(test.Tickets.ToList());
         }
 
+
+
+
+        public ActionResult tiyatroInfo(int? id)
+        {
+
+            Ticket ticket = test.Tickets.Find(id);
+            return View(ticket);
+        }
+
+
+
+
+      
+
         public ActionResult konser()
         {
             return View(test.Tickets.ToList());
         }
+
+
+        public ActionResult konserInfo(int? id)
+        {
+
+            Ticket ticket = test.Tickets.Find(id);
+            return View(ticket);
+        }
+
 
 
         private readonly DbContext _context;

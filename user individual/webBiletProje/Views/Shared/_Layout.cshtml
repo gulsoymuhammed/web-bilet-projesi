@@ -19,22 +19,18 @@
 
 <body class="@RenderSection("BodyClass", required: false)">
     <header class="header-login">
-        <a href="main.html" class="logo">
+        <a href="@Url.Action("Index", "Home")" class="logo">
             <img src="~/Content/images/logo.png" alt="logo" />
         </a>
         <nav class="navbar">
-            <a href="#">Konser </a>
-            <a href="#">Tiyatro</a>
-            <a href="#">Film</a>
-            <a href="#">Bilet Al </a>
-            <a href="iletisim.html">İletişim </a>
+            <a href="@Url.Action("konser", "Home")">Konser </a>
+            <a href="@Url.Action("tiyatro", "Home")">Tiyatro</a>
+            <a href="@Url.Action("film", "Home")">Film</a>
+            <a href="@Url.Action("Contact", "Home")">İletişim </a>
         </nav>
         <div class="buttons">
             <button>
                 <a href="login.html"><i class="fa-regular fa-user" style="color: #000000;"></i></a>
-            </button>
-            <button>
-                <i class="fa-solid fa-cart-shopping" style="color: #000000;"></i>
             </button>
         </div>
     </header>
