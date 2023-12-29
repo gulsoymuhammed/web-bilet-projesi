@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -157,6 +158,228 @@ namespace webBiletProje.Controllers
         {
             return View();
         }
+
+
+        //yeni eklemeler 
+
+        [HttpGet]
+        public ActionResult ShowAvailableAppointments(DateTime? currentDT, int? depart)
+        {
+            ViewBag.Sehirs = GetSehir(); // Populate branches for the dropdown
+            ViewBag.Departments = GetSalons(); // Always populate departments for the dropdown
+            ViewBag.EtkinlikDetay = GetEtkinlikDetay();
+            ViewBag.Etkinliks = GetEtkinliks(); // Add this line to populate etkinliks
+
+            TempData["selectedDate"] = Request.QueryString["currentDT"];
+            TempData["selectedEtkinlik"] = Request.QueryString["Etkinlik"];
+            TempData["selectedSehir"] = Request.QueryString["sehir"];
+            TempData["selectedBranch"] = Request.QueryString["branch"];
+            TempData["selectedDepartment"] = Request.QueryString["depart"];
+            TempData["selectedTime"] = Request.QueryString["selectedTime"];
+
+
+            TempData.Keep("selectedDate");
+            TempData.Keep("selectedEtkinlik");
+            TempData.Keep("selectedSehir");
+            TempData.Keep("selectedBranch");
+            TempData.Keep("selectedDepartment");
+
+            TempData.Keep("selectedDate");
+            TempData.Keep($"EtkinlikName_{TempData["selectedEtkinlik"]}");
+            TempData.Keep($"SehirName_{TempData["selectedSehir"]}");
+            TempData.Keep($"BranchName_{TempData["selectedBranch"]}");
+            TempData.Keep($"DepartName_{TempData["selectedDepartment"]}");
+            TempData.Keep("selectedTime");
+
+            // If values are not provided, show the form
+            if (!currentDT.HasValue || !depart.HasValue)
+            {
+                return View();
+            }
+
+            var result = new List<Appointment>();
+
+            if (depart == 2)
+            {
+                result = _context.Database.SqlQuery<Appointment>(
+                    "EXEC SelectProcedure @currentDT, @depart",
+                    new SqlParameter("@currentDT", currentDT.Value),
+                    new SqlParameter("@depart", depart.Value)
+                ).ToList();
+            }
+            else if (depart == 3)
+            {
+                result = _context.Database.SqlQuery<Appointment>(
+                    "EXEC ktProcedure @currentDT, @depart",
+                    new SqlParameter("@currentDT", currentDT.Value),
+                    new SqlParameter("@depart", depart.Value)
+                ).ToList();
+            }
+            else if (depart == 1)
+            {
+                result = _context.Database.SqlQuery<Appointment>(
+                    "EXEC TiyatroProcedure @currentDT, @depart",
+                    new SqlParameter("@currentDT", currentDT.Value),
+                    new SqlParameter("@depart", depart.Value)
+                ).ToList();
+            }
+
+            // Process the result as needed
+
+            return View(result);
+        }
+
+        [HttpGet]
+        public ActionResult GetSalonsBySehir(int branchId)
+        {
+            var salons = GetSalonsBySehirFromDatabase(branchId); // Replace with your logic to get departments based on branchId
+            var salonList = salons.Select(s => new SelectListItem { Value = s.Id.ToString(), Text = s.Depart }).ToList();
+            return Json(salonList, JsonRequestBehavior.AllowGet);
+        }
+
+        private IEnumerable<salon> GetSalonsBySehirFromDatabase(int branchId)
+        {
+            // Replace this with your logic to get departments based on branchId from your database
+            // For example, you might query your database using Entity Framework or another data access method.
+            return _context.Set<salon>().Where(s => s.SubeId == branchId).ToList();
+        }
+
+
+
+
+
+        // al sehirleri 
+
+        [HttpGet]
+        public ActionResult GetetkinlikdetayByEtkinlik(int etkinlikId)
+        {
+            var etkinlikdetays = GetetkinlikdetayByEtkinlikFromDatabase(etkinlikId);
+            var etkinlikdetaylist = etkinlikdetays.Select(s => new SelectListItem { Value = s.Id.ToString(), Text = s.Name }).ToList();
+            return Json(etkinlikdetaylist, JsonRequestBehavior.AllowGet);
+        }
+
+        private IEnumerable<etkinlikdetay> GetetkinlikdetayByEtkinlikFromDatabase(int etkinlikId)
+        {
+            return _context.Set<etkinlikdetay>().Where(s => s.EtkinlikId == etkinlikId).ToList();
+        }
+
+
+
+
+
+
+        [HttpGet]
+        public ActionResult GetsehirByEtkinlikDetay(int sehirId)
+        {
+            var sehirs = GetsehirByEtkinlikDetayFromDatabase(sehirId);
+            var sehirList = sehirs.Select(b => new SelectListItem { Value = b.Id.ToString(), Text = b.Name }).ToList();
+            return Json(sehirList, JsonRequestBehavior.AllowGet);
+        }
+
+        private IEnumerable<sehir> GetsehirByEtkinlikDetayFromDatabase(int sehirId)
+        {
+            // Replace this with your logic to get branches based on sehirId from your database
+            return _context.Set<sehir>().Where(b => b.SehirId == sehirId).ToList();
+        }
+
+
+
+
+
+
+
+        private SelectList GetSehir()
+        {
+            var sehirs = _context.Set<sehir>().ToList();
+
+            foreach (var sehir in sehirs)
+            {
+                TempData[$"SehirName_{sehir.Id}"] = sehir.Name;
+            }
+
+            return new SelectList(sehirs, "Id", "Name");
+        }
+
+
+
+        private SelectList GetSalons()
+        {
+            var salons = _context.Set<salon>().ToList();
+
+            foreach (var salon in salons)
+            {
+                TempData[$"SalonName_{salon.Id}"] = salon.Depart;
+            }
+
+            return new SelectList(salons, "Id", "Depart");
+        }
+
+        private SelectList GetEtkinliks()
+        {
+            var etkinliks = _context.Set<Etkinlik>().ToList();
+
+            foreach (var etkinlik in etkinliks)
+            {
+                TempData[$"EtkinlikName_{etkinlik.Id}"] = etkinlik.Name;
+            }
+
+            return new SelectList(etkinliks, "Id", "Name");
+        }
+
+        private SelectList GetEtkinlikDetay()
+        {
+            var etkinlikdetays = _context.Set<etkinlikdetay>().ToList();
+
+            foreach (var etkinlikdetay in etkinlikdetays)
+            {
+                TempData[$"EtkinlikDetay_{etkinlikdetay.Id}"] = etkinlikdetay.Name;
+            }
+
+            return new SelectList(etkinlikdetays, "Id", "Name");
+        }
+
+
+
+
+        [HttpGet]
+        public ActionResult OtherPage()
+        {
+            // Retrieve selected values from TempData
+            var selectedDate = TempData["selectedDate"]?.ToString();
+            var selectedEtkinlik = TempData["selectedEtkinlik"]?.ToString();
+            var selectedSehir = TempData["selectedSehir"]?.ToString();
+            var selectedEtkinlikDetay = TempData["selectedEtkinlikDetay"]?.ToString();
+            var selectedSalon = TempData["selectedSalon"]?.ToString();
+            var selectedTime = TempData["selectedTime"]?.ToString();
+
+            // Keep TempData values for the next request
+            TempData.Keep("selectedDate");
+            TempData.Keep("selectedEtkinlik");
+            TempData.Keep("selectedSehir");
+            TempData.Keep("selectedEtkinlikDetay");
+            TempData.Keep("selectedSalon");
+
+            Console.WriteLine($"selectedDate: {selectedDate}");
+            Console.WriteLine($"selectedEtkinlik: {selectedEtkinlik}");
+            Console.WriteLine($"selectedSehir: {selectedSehir}");
+            Console.WriteLine($"selectedEtkinlikDetay: {selectedEtkinlikDetay}");
+            Console.WriteLine($"selectedSalon: {selectedSalon}");
+            Console.WriteLine($"selectedTime: {selectedTime}");
+
+            return View();
+        }
+
+
+        //ödeme alıncak.
+        public ActionResult Payment()
+        {
+            return View();
+        }
+
+
+
+
+
 
         public async Task<ActionResult> GetUserByUsername(string userName)
         {
