@@ -28,11 +28,10 @@
             <a href="@Url.Action("film", "Home")">Film</a>
             <a href="@Url.Action("Contact", "Home")">İletişim </a>
         </nav>
-        <div class="buttons">
-            <button>
-                <a href="login.html"><i class="fa-regular fa-user" style="color: #000000;"></i></a>
-            </button>
-        </div>
+        
+        @Html.Partial("_LoginPartial")
+            
+       
     </header>
 
 
