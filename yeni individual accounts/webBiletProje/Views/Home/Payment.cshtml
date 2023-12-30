@@ -1,0 +1,196 @@
+﻿@{
+    ViewBag.Title = "Payment Page";
+    ViewData["Title"] = "Payment Page";
+}
+
+<link rel="stylesheet" href="~/Content/css/Seat.css">
+
+<style>
+
+    .larger-form {
+        max-width: 600px; /* Adjust the maximum width as needed */
+        margin: auto;
+    }
+</style>
+
+<h2>Ödeme Sayfası</h2>
+
+<p>Seçilen Tarih: <span id="selectedDateDisplay"></span></p>
+<p>Seçilen Etkinlik: <span id="selectedEtkinlikDisplay"></span></p>
+<p>Seçilen Etkinlik adı: <span id="selectedSehirDisplay"></span></p>
+<p>Seçilen Şehir: <span id="selectedBranchDisplay"></span></p>
+<p>Seçilen Salon: <span id="selectedDepartmentDisplay"></span></p>
+<p>Seçilen Saat: <span id="selectedTimeDisplay"></span></p>
+
+<h2>Seçilen Koltuk(lar)</h2>
+
+<div id="selectedSeatsDisplay"></div>
+
+
+
+<div class="container mt-5 larger-form">
+    <!-- Your existing HTML code for displaying selected values -->
+
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title" style="color:darkred">Ödeme Formu</h4>
+                </div>
+                <div class="card-body">
+                    <form onsubmit="return validateForm()" id="paymentForm">
+                        <!-- Your form fields with larger width -->
+                        <div class="form-group">
+                            <label for="firstName">İsim</label>
+                            <input type="text" class="form-control" id="firstName" placeholder="İsminizi giriniz" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Soyisim</label>
+                            <input type="text" class="form-control" id="lastName" placeholder="Soyadınızı giriniz" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="Mail adresinizi giriniz" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="creditCard">Credit Card Number</label>
+                            <input type="text" class="form-control" id="creditCard" placeholder="Kredi kartınızı giriniz" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="col">
+                                <label for="expiryDate">Expiration Date (MM/YY)</label>
+                                <input type="text" class="form-control" id="expiryDate" placeholder="MM/YY" required>
+                            </div>
+                            <div class="col">
+                                <label for="cvv">CVV</label>
+                                <input type="text" class="form-control" id="cvv" placeholder="CVV" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-3">Ödemeyi Onayla</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<a href="@Url.Action("Payment", "Home")" id="continueButton" style="display:none">Continue to Payment</a>
+
+
+
+<script>
+    // Get values from localStorage
+    var selectedDate = localStorage.getItem('selectedDate');
+    var selectedEtkinlik = localStorage.getItem('selectedEtkinlik');
+    var selectedSehir = localStorage.getItem('selectedSehir');
+    var selectedBranch = localStorage.getItem('selectedBranch');
+    var selectedDepartment = localStorage.getItem('selectedDepartment');
+    var selectedTime = localStorage.getItem('selectedTime');
+
+    // Display the values in HTML
+    document.getElementById('selectedDateDisplay').innerText = selectedDate;
+    document.getElementById('selectedEtkinlikDisplay').innerText = selectedEtkinlik;
+    document.getElementById('selectedSehirDisplay').innerText = selectedSehir;
+    document.getElementById('selectedBranchDisplay').innerText = selectedBranch;
+    document.getElementById('selectedDepartmentDisplay').innerText = selectedDepartment;
+    document.getElementById('selectedTimeDisplay').innerText = selectedTime;
+
+    // Log the values to the console for debugging
+    console.log('selectedDate:', selectedDate);
+    console.log('selectedEtkinlik:', selectedEtkinlik);
+    console.log('selectedSehir:', selectedSehir);
+    console.log('selectedBranch:', selectedBranch);
+    console.log('selectedDepartment:', selectedDepartment);
+    console.log('selectedTime:', selectedTime);
+
+    // Retrieve selected seats from localStorage
+    var selectedSeats = [];
+    for (var i = 1; i <= 48; i++) {
+        var seatStatus = localStorage.getItem('seat-' + i);
+        if (seatStatus === 'selected') {
+            selectedSeats.push('seat-' + i);
+        }
+    }
+
+    // Display selected seats on the page
+    var selectedSeatsDisplay = document.getElementById('selectedSeatsDisplay');
+    selectedSeatsDisplay.innerText = selectedSeats.join(', ');
+
+
+
+
+    // For Card Number formatted input
+        var cardNum = document.getElementById('cr_no');
+        cardNum.addEventListener('input', function (e) {
+        if (this.value == this.lastValue) return;
+        var caretPosition = this.selectionStart;
+        var sanitizedValue = this.value.replace(/[^0-9]/gi, '');
+        var parts = [];
+
+        for (var i = 0, len = sanitizedValue.length; i < len; i += 4) {
+            parts.push(sanitizedValue.substring(i, i + 4));
+        }
+
+        for (var i = caretPosition - 1; i >= 0; i--) {
+            var c = this.value[i];
+        if (c < '0' || c > '9') {
+            caretPosition--;
+            }
+        }
+        caretPosition += Math.floor(caretPosition / 4);
+
+        this.value = this.lastValue = parts.join(' ');
+        this.selectionStart = this.selectionEnd = caretPosition;
+    });
+
+        // For Date formatted input
+        var expDate = document.getElementById('exp');
+        expDate.addEventListener('input', function (e) {
+        if (this.value == this.lastValue) return;
+        var caretPosition = this.selectionStart;
+        var sanitizedValue = this.value.replace(/[^0-9]/gi, '');
+        var parts = [];
+
+        for (var i = 0, len = sanitizedValue.length; i < len; i += 2) {
+            parts.push(sanitizedValue.substring(i, i + 2));
+        }
+
+        for (var i = caretPosition - 1; i >= 0; i--) {
+            var c = this.value[i];
+        if (c < '0' || c > '9') {
+            caretPosition--;
+            }
+        }
+        caretPosition += Math.floor(caretPosition / 2);
+
+        this.value = this.lastValue = parts.join('/');
+        this.selectionStart = this.selectionEnd = caretPosition;
+        });
+
+    function validateForm() {
+        var firstName = document.getElementById('firstName').value;
+        var lastName = document.getElementById('lastName').value;
+        var email = document.getElementById('email').value;
+        var creditCard = document.getElementById('creditCard').value;
+        var expiryDate = document.getElementById('expiryDate').value;
+        var cvv = document.getElementById('cvv').value;
+
+        if (firstName !== '' && lastName !== '' && email !== '' && creditCard !== '' && expiryDate !== '' && cvv !== '') {
+            // All fields are filled, show alert
+            alert('Ödeme onaylandı!');
+
+            document.getElementById('paymentForm').style.display = 'none';
+
+            // Show the "Continue to Payment" link
+            document.getElementById('continueButton').style.display = 'block';
+
+
+            return true; // Allow form submission
+        } else {
+            // Some fields are not filled, prevent form submission
+            alert('Lütfen tüm alanları doldurun.');
+            return false;
+        }
+    }
+</script>
