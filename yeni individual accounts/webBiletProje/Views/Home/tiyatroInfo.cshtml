@@ -39,8 +39,10 @@
                         <li> <span class="mainactor">Ana Kişi: @Model.MainActor</span> </li>
                     </div>
                 </div>
-                <button style="font-size:1.4rem" class="biletiniAlLg full flex alignCenter justifyCenter">
-                    <span>BİLETİNİ AL</span>
+                <button style="font-size: 1.4rem" class="biletiniAlLg full flex alignCenter justifyCenter">
+                    <a href="@Url.Action("ShowAvailableAppointments", "Home")">
+                        <span>BİLETİNİ AL</span>
+                    </a>
                 </button>
             </div>
         </div>
