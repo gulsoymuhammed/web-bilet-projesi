@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.SqlClient;
@@ -437,7 +438,7 @@ namespace webBiletProje.Controllers
                     var partialOrder = new Orders
                     {
                         UserId = 1,
-                        UserName = "deneme",
+                        UserName = @User.Identity.Name,
                         Category = selectedEtkinlik,
                         TicketName = selectedSehir,
                         City = selectedBranch,
