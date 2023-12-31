@@ -49,36 +49,6 @@
             <div class="seat"></div>
             <div class="seat"></div>
             <div class="seat"></div>
-            <div class="seat occupied"></div>
-            <div class="seat occupied"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-        </div>
-        <div class="row">
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat occupied"></div>
-            <div class="seat occupied"></div>
-        </div>
-        <div class="row">
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat occupied"></div>
-            <div class="seat occupied"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-        </div>
-        <div class="row">
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
             <div class="seat"></div>
             <div class="seat"></div>
             <div class="seat"></div>
@@ -89,8 +59,8 @@
             <div class="seat"></div>
             <div class="seat"></div>
             <div class="seat"></div>
-            <div class="seat occupied"></div>
-            <div class="seat occupied"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
             <div class="seat"></div>
             <div class="seat"></div>
             <div class="seat"></div>
@@ -110,9 +80,39 @@
             <div class="seat"></div>
             <div class="seat"></div>
             <div class="seat"></div>
-            <div class="seat occupied"></div>
-            <div class="seat occupied"></div>
-            <div class="seat occupied"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+        </div>
+        <div class="row">
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+        </div>
+        <div class="row">
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+        </div>
+        <div class="row">
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
             <div class="seat"></div>
         </div>
 
@@ -127,7 +127,7 @@
 
 
 <a href="@Url.Action("Payment", "Home")" id="continueButton" style="display:none">Continue to Payment</a>
-
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
 
     const continueButton = document.getElementById('continueButton');
@@ -193,6 +193,19 @@
         continueButton.style.display = selectedSeatsCount > 0 ? 'block' : 'none';
     }
 
+      var occupiedSeatNumbers = @Html.Raw(Json.Encode(ViewBag.OccupiedSeatNumbers));
+
+    // ...
+
+    // Update the seats based on the occupiedSeatNumbers
+    seats.forEach((seat, index) => {
+        const seatNumber = index + 1;
+
+        // Check if the seatNumber is in the list of occupiedSeatNumbers
+        if (occupiedSeatNumbers.includes(seatNumber)) {
+            seat.classList.add('occupied');
+        }
+    });
 
 
     // Seat click event
@@ -203,4 +216,6 @@
         }
         updateSelectedCount();
     });
+
+
 </script>

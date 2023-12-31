@@ -35,10 +35,10 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title" style="color:darkred">Ödeme Formu</h4>
+                    <h4 id="paymentTitle" class="card-title" style="color:darkred">Ödeme Formu</h4>
                 </div>
                 <div class="card-body">
-                    <form onsubmit="return validateForm()" id="paymentForm">
+                    <form action="@Url.Action("CreatePayment", "Home")" method="post" onsubmit="return validateForm()" id="paymentForm">
                         <!-- Your form fields with larger width -->
                         <div class="form-group">
                             <label for="firstName">İsim</label>
@@ -75,7 +75,8 @@
 </div>
 
 
-<a href="@Url.Action("Payment", "Home")" id="continueButton" style="display:none">Continue to Payment</a>
+<a href="@Url.Action("Payment", "Home")" id="continueButton" style="display:none">Ana Sayfaya Dön</a>
+
 
 
 
@@ -96,13 +97,8 @@
     document.getElementById('selectedDepartmentDisplay').innerText = selectedDepartment;
     document.getElementById('selectedTimeDisplay').innerText = selectedTime;
 
-    // Log the values to the console for debugging
-    console.log('selectedDate:', selectedDate);
-    console.log('selectedEtkinlik:', selectedEtkinlik);
-    console.log('selectedSehir:', selectedSehir);
-    console.log('selectedBranch:', selectedBranch);
-    console.log('selectedDepartment:', selectedDepartment);
-    console.log('selectedTime:', selectedTime);
+
+
 
     // Retrieve selected seats from localStorage
     var selectedSeats = [];
@@ -118,57 +114,37 @@
     selectedSeatsDisplay.innerText = selectedSeats.join(', ');
 
 
+    function isValidCreditCard(cardNumber) {
+        // Remove any non-digit characters
+        var cardNumberClean = cardNumber.replace(/\D/g, '');
 
+        // Convert the card number string into an array of digits
+        var cardDigits = cardNumberClean.split('').map(Number);
 
-    // For Card Number formatted input
-        var cardNum = document.getElementById('cr_no');
-        cardNum.addEventListener('input', function (e) {
-        if (this.value == this.lastValue) return;
-        var caretPosition = this.selectionStart;
-        var sanitizedValue = this.value.replace(/[^0-9]/gi, '');
-        var parts = [];
+        // Reverse the array of digits
+        cardDigits.reverse();
 
-        for (var i = 0, len = sanitizedValue.length; i < len; i += 4) {
-            parts.push(sanitizedValue.substring(i, i + 4));
-        }
-
-        for (var i = caretPosition - 1; i >= 0; i--) {
-            var c = this.value[i];
-        if (c < '0' || c > '9') {
-            caretPosition--;
+        // Double every second digit
+        for (var i = 1; i < cardDigits.length; i += 2) {
+            cardDigits[i] *= 2;
+            if (cardDigits[i] > 9) {
+                cardDigits[i] -= 9;
             }
         }
-        caretPosition += Math.floor(caretPosition / 4);
 
-        this.value = this.lastValue = parts.join(' ');
-        this.selectionStart = this.selectionEnd = caretPosition;
-    });
+        // Sum all the digits
+        var sum = cardDigits.reduce(function (acc, digit) {
+            return acc + digit;
+        }, 0);
 
-        // For Date formatted input
-        var expDate = document.getElementById('exp');
-        expDate.addEventListener('input', function (e) {
-        if (this.value == this.lastValue) return;
-        var caretPosition = this.selectionStart;
-        var sanitizedValue = this.value.replace(/[^0-9]/gi, '');
-        var parts = [];
+        // Check if the sum is a multiple of 10
+        return sum % 10 === 0;
+    }
 
-        for (var i = 0, len = sanitizedValue.length; i < len; i += 2) {
-            parts.push(sanitizedValue.substring(i, i + 2));
-        }
 
-        for (var i = caretPosition - 1; i >= 0; i--) {
-            var c = this.value[i];
-        if (c < '0' || c > '9') {
-            caretPosition--;
-            }
-        }
-        caretPosition += Math.floor(caretPosition / 2);
 
-        this.value = this.lastValue = parts.join('/');
-        this.selectionStart = this.selectionEnd = caretPosition;
-        });
 
-    function validateForm() {
+    async function validateForm() {
         var firstName = document.getElementById('firstName').value;
         var lastName = document.getElementById('lastName').value;
         var email = document.getElementById('email').value;
@@ -176,17 +152,70 @@
         var expiryDate = document.getElementById('expiryDate').value;
         var cvv = document.getElementById('cvv').value;
 
-        if (firstName !== '' && lastName !== '' && email !== '' && creditCard !== '' && expiryDate !== '' && cvv !== '') {
-            // All fields are filled, show alert
-            alert('Ödeme onaylandı!');
+        // Check if the credit card number is valid
+        if (!isValidCreditCard(creditCard)) {
+            alert('Geçersiz kredi kartı numarası.');
+            return false;
+        }
 
-            document.getElementById('paymentForm').style.display = 'none';
+        var selectedSeats = [];
+        for (var i = 1; i <= 48; i++) {
+            var seatStatus = localStorage.getItem('seat-' + i);
+            if (seatStatus === 'selected') {
+                selectedSeats.push(i);
+            }
+        }
 
-            // Show the "Continue to Payment" link
-            document.getElementById('continueButton').style.display = 'block';
+        var selectedSeatsString = selectedSeats.join(',');
 
 
-            return true; // Allow form submission
+
+        // Check other form fields
+        if (firstName !== '' && lastName !== '' && email !== '' && expiryDate !== '' && cvv !== '') {
+            try {
+                // Display a loading spinner or message here if needed
+
+                // Create an object with selected values
+                var selectedValues = {
+                    selectedDate: selectedDate,
+                    selectedEtkinlik: selectedEtkinlik,
+                    selectedSehir: selectedSehir,
+                    selectedBranch: selectedBranch,
+                    selectedDepartment: selectedDepartment,
+                    selectedTime: selectedTime,
+                    selectedSeatsString: selectedSeatsString
+                };
+
+                // Combine form data and selected values
+                var formData = new FormData(document.getElementById('paymentForm'));
+                for (var key in selectedValues) {
+                    formData.append(key, selectedValues[key]);
+                }
+
+                // Make an asynchronous POST request to the server
+                var response = await fetch('/Home/CreatePayment', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (response.ok) {
+                    // Successful response, show success message
+                    alert('Ödeme onaylandı!');
+                    document.getElementById('paymentForm').style.display = 'none';
+                    document.getElementById('continueButton').style.display = 'block';
+                    var paymentTitle = document.getElementById('paymentTitle');
+                    paymentTitle.style.color = 'green';
+                    paymentTitle.innerText = 'Ödeme onaylandı!';
+                } else {
+                    // Handle error response
+                    alert('Ödeme işlemi başarısız oldu.');
+                }
+            } catch (error) {
+                // Handle unexpected errors
+                console.error('Error:', error);
+            }
+
+            return false; // Prevent the default form submission
         } else {
             // Some fields are not filled, prevent form submission
             alert('Lütfen tüm alanları doldurun.');

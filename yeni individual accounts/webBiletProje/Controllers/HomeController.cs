@@ -67,7 +67,7 @@ namespace webBiletProje.Controllers
 
 
 
-        private readonly DbContext _context;
+        private readonly DataContext _context;
 
         public HomeController()
         {
@@ -341,35 +341,92 @@ namespace webBiletProje.Controllers
 
 
 
-
         [HttpGet]
         public ActionResult OtherPage()
         {
-            // Retrieve selected values from TempData
-            var selectedDate = TempData["selectedDate"]?.ToString();
-            var selectedEtkinlik = TempData["selectedEtkinlik"]?.ToString();
-            var selectedSehir = TempData["selectedSehir"]?.ToString();
-            var selectedEtkinlikDetay = TempData["selectedEtkinlikDetay"]?.ToString();
-            var selectedSalon = TempData["selectedSalon"]?.ToString();
-            var selectedTime = TempData["selectedTime"]?.ToString();
+            // Fetch orders with occupied seats from the database
+            var ordersWithOccupiedSeats = _context.Orderss.Where(o => !string.IsNullOrEmpty(o.Seat)).ToList();
 
-            // Keep TempData values for the next request
-            TempData.Keep("selectedDate");
-            TempData.Keep("selectedEtkinlik");
-            TempData.Keep("selectedSehir");
-            TempData.Keep("selectedEtkinlikDetay");
-            TempData.Keep("selectedSalon");
 
-            Console.WriteLine($"selectedDate: {selectedDate}");
-            Console.WriteLine($"selectedEtkinlik: {selectedEtkinlik}");
-            Console.WriteLine($"selectedSehir: {selectedSehir}");
-            Console.WriteLine($"selectedEtkinlikDetay: {selectedEtkinlikDetay}");
-            Console.WriteLine($"selectedSalon: {selectedSalon}");
-            Console.WriteLine($"selectedTime: {selectedTime}");
+
+            // Extract occupied seat numbers from orders
+            var occupiedSeatNumbers = ordersWithOccupiedSeats
+                .SelectMany(o => o.Seat.Split(',').Select(s => int.Parse(s.Trim())))
+                .ToList();
+
+            // Pass the occupied seat information to the view
+            ViewBag.OccupiedSeatNumbers = occupiedSeatNumbers;
 
             return View();
         }
+        [HttpPost]
+        public JsonResult VerifySeats(string selectedDate, string selectedEtkinlik, string selectedSehir, string selectedBranch, string selectedDepartment, string selectedTime, string selectedSeatsString)
+        {
+            // Your verification logic here
+            // Example: Check if the selected data matches any existing order
 
+            var ordersWithSameProps = _context.Orderss
+                .Where(o => o.Category == selectedEtkinlik
+                            && o.TicketName == selectedSehir
+                            && o.City == selectedBranch
+                            && o.Salon == selectedDepartment
+                            && o.Seat == selectedSeatsString
+                            && o.TicketDate == selectedDate
+                            && o.TicketHour == selectedTime)
+                .ToList();
+
+            // Extract occupied seat numbers from orders
+            var occupiedSeatNumbers = ordersWithSameProps
+                .SelectMany(o => o.Seat.Split(',').Select(s => int.Parse(s.Trim())))
+                .ToList();
+
+            // Check if any selected seat is already occupied
+            var selectedSeats = selectedSeatsString.Split(',').Select(s => int.Parse(s.Trim()));
+            var isAnySeatOccupied = selectedSeats.Any(seat => occupiedSeatNumbers.Contains(seat));
+
+            if (isAnySeatOccupied)
+            {
+                // Some selected seats are already occupied, inform the user
+                return Json(new { success = false, message = "One or more selected seats are already occupied. Please choose different seats." });
+            }
+
+            // All selected seats are available
+            return Json(new { success = true, occupiedSeatNumbers });
+        }
+        [HttpPost]
+        public ActionResult CreatePayment(Orders newOrder, string selectedDate, string selectedEtkinlik, string selectedSehir, string selectedBranch, string selectedDepartment, string selectedTime, string selectedSeatsString)
+        {
+            if (ModelState.IsValid)
+            {
+                using (var context = new DataContext())
+                {
+                    // Yalnızca belirli bilgileri al ve yeni bir Orders nesnesi oluştur
+                    var partialOrder = new Orders
+                    {
+                        UserId = 1,
+                        UserName = "deneme",
+                        Category = selectedEtkinlik,
+                        TicketName = selectedSehir,
+                        City = selectedBranch,
+                        Salon = selectedDepartment,
+                        Seat = selectedSeatsString,
+                        TicketDate = selectedDate,
+                        TicketHour = selectedTime
+
+
+                        // Diğer özellikleri de ekleyebilirsiniz
+                    };
+
+                    context.Orderss.Add(partialOrder);
+                    context.SaveChanges();
+                }
+
+                // Diğer işlemler
+
+                return RedirectToAction("Index");
+            }
+            return View(newOrder);
+        }
 
         //ödeme alıncak.
         public ActionResult Payment()
