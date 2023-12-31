@@ -102,7 +102,7 @@
 
     // Retrieve selected seats from localStorage
     var selectedSeats = [];
-    for (var i = 1; i <= 48; i++) {
+    for (var i = 1; i <= 100; i++) {
         var seatStatus = localStorage.getItem('seat-' + i);
         if (seatStatus === 'selected') {
             selectedSeats.push('seat-' + i);
@@ -159,7 +159,7 @@
         }
 
         var selectedSeats = [];
-        for (var i = 1; i <= 48; i++) {
+        for (var i = 1; i <= 100; i++) {
             var seatStatus = localStorage.getItem('seat-' + i);
             if (seatStatus === 'selected') {
                 selectedSeats.push(i);

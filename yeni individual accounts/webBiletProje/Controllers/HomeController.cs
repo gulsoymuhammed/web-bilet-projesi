@@ -344,10 +344,40 @@ namespace webBiletProje.Controllers
         [HttpGet]
         public ActionResult OtherPage()
         {
-            // Fetch orders with occupied seats from the database
-            var ordersWithOccupiedSeats = _context.Orderss.Where(o => !string.IsNullOrEmpty(o.Seat)).ToList();
+            // Fetch orders with non-empty specified properties
+            var ordersWithSameProps = _context.Orderss
+                .Where(o =>
+                    !string.IsNullOrEmpty(o.Category) &&
+                    !string.IsNullOrEmpty(o.TicketName) &&
+                    !string.IsNullOrEmpty(o.City) &&
+                    !string.IsNullOrEmpty(o.Salon) &&
+                    !string.IsNullOrEmpty(o.Seat) &&
+                    !string.IsNullOrEmpty(o.TicketDate) &&
+                    !string.IsNullOrEmpty(o.TicketHour))
+                .ToList();
 
+            // Extract relevant information and pass it to the view
+            var relevantData = ordersWithSameProps
+                .Select(o => new
+                {
+                    // Adjust the property names based on your actual model
+                    Category = o.Category,
+                    TicketName = o.TicketName,
+                    City = o.City,
+                    Salon = o.Salon,
+                    Seat = o.Seat,
+                    TicketDate = o.TicketDate,
+                    TicketHour = o.TicketHour
+                })
+                .ToList();
 
+            // Pass the relevant data to the view
+            ViewBag.OrdersWithSameProps = relevantData;
+
+            // Fetch orders with occupied seats from the database based on the relevant data
+            var ordersWithOccupiedSeats = ordersWithSameProps
+                .Where(o => !string.IsNullOrEmpty(o.Seat))
+                .ToList();
 
             // Extract occupied seat numbers from orders
             var occupiedSeatNumbers = ordersWithOccupiedSeats
@@ -360,38 +390,41 @@ namespace webBiletProje.Controllers
             return View();
         }
         [HttpPost]
-        public JsonResult VerifySeats(string selectedDate, string selectedEtkinlik, string selectedSehir, string selectedBranch, string selectedDepartment, string selectedTime, string selectedSeatsString)
+        public ActionResult VerifySeats()
         {
             // Your verification logic here
             // Example: Check if the selected data matches any existing order
-
             var ordersWithSameProps = _context.Orderss
-                .Where(o => o.Category == selectedEtkinlik
-                            && o.TicketName == selectedSehir
-                            && o.City == selectedBranch
-                            && o.Salon == selectedDepartment
-                            && o.Seat == selectedSeatsString
-                            && o.TicketDate == selectedDate
-                            && o.TicketHour == selectedTime)
+           .Where(o => !string.IsNullOrEmpty(o.Category) &&
+                       !string.IsNullOrEmpty(o.TicketName) &&
+                       !string.IsNullOrEmpty(o.City) &&
+                       !string.IsNullOrEmpty(o.Salon) &&
+                       !string.IsNullOrEmpty(o.Seat) &&
+                       !string.IsNullOrEmpty(o.TicketDate) &&
+                       !string.IsNullOrEmpty(o.TicketHour))
+           .ToList();
+
+            // Extract relevant information and pass it to the view
+            var relevantData = ordersWithSameProps
+                .Select(o => new
+                {
+                    // Adjust the property names based on your actual model
+                    Category = o.Category,
+                    TicketName = o.TicketName,
+                    City = o.City,
+                    Salon = o.Salon,
+                    Seat = o.Seat,
+                    TicketDate = o.TicketDate,
+                    TicketHour = o.TicketHour
+                })
                 .ToList();
 
-            // Extract occupied seat numbers from orders
-            var occupiedSeatNumbers = ordersWithSameProps
-                .SelectMany(o => o.Seat.Split(',').Select(s => int.Parse(s.Trim())))
-                .ToList();
+            // Pass the relevant data to the view
+            ViewBag.OrdersWithSameProps = relevantData;
 
-            // Check if any selected seat is already occupied
-            var selectedSeats = selectedSeatsString.Split(',').Select(s => int.Parse(s.Trim()));
-            var isAnySeatOccupied = selectedSeats.Any(seat => occupiedSeatNumbers.Contains(seat));
 
-            if (isAnySeatOccupied)
-            {
-                // Some selected seats are already occupied, inform the user
-                return Json(new { success = false, message = "One or more selected seats are already occupied. Please choose different seats." });
-            }
 
-            // All selected seats are available
-            return Json(new { success = true, occupiedSeatNumbers });
+            return View("OtherPage");
         }
         [HttpPost]
         public ActionResult CreatePayment(Orders newOrder, string selectedDate, string selectedEtkinlik, string selectedSehir, string selectedBranch, string selectedDepartment, string selectedTime, string selectedSeatsString)
