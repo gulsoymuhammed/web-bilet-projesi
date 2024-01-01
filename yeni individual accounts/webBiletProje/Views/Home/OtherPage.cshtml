@@ -14,7 +14,7 @@
 <p>Seçilen Salon: <span id="selectedDepartmentDisplay"></span></p>
 <p>Seçilen Saat: <span id="selectedTimeDisplay"></span></p>
 
-<h2>Cinema Seat Selection</h2>
+<h2>Seat Selection</h2>
 
 <div class="movie-container">
     <ul class="showcase">
@@ -233,6 +233,46 @@ container.addEventListener('click', e => {
         e.target.classList.toggle('selected');
     }
     updateSelectedCount();
+    updatePrice();
 });
 
+    var price = 0; // Default price
+
+    switch (selectedEtkinlik) {
+        case "Tiyatro":
+            price = 150;
+            break;
+        case "Sinema":
+            price = 120;
+            break;
+        case "Konser":
+            price = 200;
+            break;
+        // Add more cases if needed for other event types
+    }
+
+    // Display the price on the page
+
+
+    // ... (your existing code)
+
+    // Display the price on the page
+    var priceDisplay = document.createElement('h2');
+    priceDisplay.innerText = 'Fiyat: ' + price + ' TL';
+    container.appendChild(priceDisplay);
+
+
+    function updatePrice() {
+        var selectedSeatsCount = parseInt(count.innerText, 10);
+        var totalPrice = price * selectedSeatsCount;
+
+        // Linear increase in price based on the number of selected seats
+        totalPrice = price * selectedSeatsCount;
+
+        // Display the updated price on the page
+        priceDisplay.innerText = 'Fiyat: ' + totalPrice + ' TL';
+        localStorage.setItem('finalPrice', totalPrice);
+    }
+
+    updatePrice();
 </script>

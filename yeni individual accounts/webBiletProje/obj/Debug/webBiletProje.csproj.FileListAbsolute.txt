@@ -543,3 +543,8 @@ C:\Users\USER\Documents\GitHub\web-bilet-projesi\yeni individual accounts\webBil
 C:\Users\USER\Documents\GitHub\web-bilet-projesi\yeni individual accounts\webBiletProje\obj\Debug\webBiletProje.Migrations.YourMigrationName.resources
 C:\Users\USER\Documents\GitHub\web-bilet-projesi\yeni individual accounts\webBiletProje\obj\Debug\webBiletProje.Migrations.YourMigrationName1.resources
 C:\Users\USER\Documents\GitHub\web-bilet-projesi\yeni individual accounts\webBiletProje\obj\Debug\webBiletProje.Migrations.YourMigrationName2.resources
+C:\Users\ASUS\Desktop\webbilet14kasim\web-bilet-projesi\yeni individual accounts\webBiletProje\obj\Debug\webBiletProje.Migrations.InitialCreate.resources
+C:\Users\ASUS\Desktop\webbilet14kasim\web-bilet-projesi\yeni individual accounts\webBiletProje\obj\Debug\webBiletProje.Migrations.YourMigrationName.resources
+C:\Users\ASUS\Desktop\webbilet14kasim\web-bilet-projesi\yeni individual accounts\webBiletProje\obj\Debug\webBiletProje.Migrations.YourMigrationName1.resources
+C:\Users\ASUS\Desktop\webbilet14kasim\web-bilet-projesi\yeni individual accounts\webBiletProje\obj\Debug\webBiletProje.Migrations.YourMigrationName2.resources
+C:\Users\ASUS\Desktop\webbilet14kasim\web-bilet-projesi\yeni individual accounts\webBiletProje\obj\Debug\webBiletProje.csproj.GenerateResource.cache

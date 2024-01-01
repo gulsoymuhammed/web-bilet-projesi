@@ -433,32 +433,42 @@ namespace webBiletProje.Controllers
         {
             if (ModelState.IsValid)
             {
-                using (var context = new DataContext())
+                // Get the currently logged-in user
+                var user = _context.Set<User>().SingleOrDefault(u => u.UserName == @User.Identity.Name);
+
+                if (user != null)
                 {
-                    // Yalnızca belirli bilgileri al ve yeni bir Orders nesnesi oluştur
-                    var partialOrder = new Orders
+                    using (var context = new DataContext())
                     {
-                        UserId = 1,
-                        UserName = @User.Identity.Name,
-                        Category = selectedEtkinlik,
-                        TicketName = selectedSehir,
-                        City = selectedBranch,
-                        Salon = selectedDepartment,
-                        Seat = selectedSeatsString,
-                        TicketDate = selectedDate,
-                        TicketHour = selectedTime
+                        // Use the UserId from the logged-in user
+                        var partialOrder = new Orders
+                        {
+                            UserId = user.UserId,
+                            UserName = @User.Identity.Name,
+                            Category = selectedEtkinlik,
+                            TicketName = selectedSehir,
+                            City = selectedBranch,
+                            Salon = selectedDepartment,
+                            Seat = selectedSeatsString,
+                            TicketDate = selectedDate,
+                            TicketHour = selectedTime
+                            // Add other properties as needed
+                        };
 
+                        context.Orderss.Add(partialOrder);
+                        context.SaveChanges();
+                    }
 
-                        // Diğer özellikleri de ekleyebilirsiniz
-                    };
+                    // Other processing
 
-                    context.Orderss.Add(partialOrder);
-                    context.SaveChanges();
+                    return RedirectToAction("Index");
                 }
-
-                // Diğer işlemler
-
-                return RedirectToAction("Index");
+                else
+                {
+                    // Handle the case where the user is not found
+                    ViewBag.ErrorMessage = "User not found.";
+                    return View(newOrder);
+                }
             }
             return View(newOrder);
         }

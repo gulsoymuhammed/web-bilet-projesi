@@ -26,6 +26,10 @@
 
 <div id="selectedSeatsDisplay"></div>
 
+<h2>Ücret</h2>
+
+<div id="selectedPriceDisplay"></div>
+
 
 
 <div class="container mt-5 larger-form">
@@ -81,6 +85,8 @@
 
 
 <script>
+
+  
     // Get values from localStorage
     var selectedDate = localStorage.getItem('selectedDate');
     var selectedEtkinlik = localStorage.getItem('selectedEtkinlik');
@@ -97,6 +103,9 @@
     document.getElementById('selectedDepartmentDisplay').innerText = selectedDepartment;
     document.getElementById('selectedTimeDisplay').innerText = selectedTime;
 
+    var finalPrice = localStorage.getItem('finalPrice');
+
+    document.getElementById('selectedPriceDisplay').innerText = finalPrice;
 
 
 
