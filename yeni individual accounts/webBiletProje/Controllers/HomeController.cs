@@ -471,6 +471,18 @@ namespace webBiletProje.Controllers
 
 
 
+        public ActionResult MyTickets()
+        {
+            // Get the current user's identity name
+            var currentUserName = User.Identity.Name;
+
+            // Retrieve orders for the current user from the Orders table
+            var userOrders = _context.Orderss.Where(o => o.UserName == currentUserName && o.Salon.Length >= 3).ToList();
+
+            // Pass the list of orders to the view
+            return View(userOrders);
+        }
+
 
 
 
