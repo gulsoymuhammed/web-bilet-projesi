@@ -13,6 +13,8 @@ namespace webBiletProje.Controllers
         private webBiletProjeContext db = new webBiletProjeContext();
 
         // GET: Films
+        [Authorize(Users ="gulsoyymuhammed@gmail.com")]
+
         public ActionResult Index()
         {
             return View(db.Tickets.ToList());

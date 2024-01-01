@@ -164,6 +164,7 @@ namespace webBiletProje.Controllers
 
         //yeni eklemeler 
 
+        [Authorize]
         [HttpGet]
         public ActionResult ShowAvailableAppointments(DateTime? currentDT, int? depart)
         {
