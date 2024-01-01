@@ -538,3 +538,8 @@ C:\Users\USER\Documents\GitHub\web-bilet-projesi\yeni individual accounts\webBil
 C:\Users\USER\Documents\GitHub\web-bilet-projesi\yeni individual accounts\webBiletProje\bin\roslyn\vbc.rsp
 C:\Users\USER\Documents\GitHub\web-bilet-projesi\yeni individual accounts\webBiletProje\bin\roslyn\VBCSCompiler.exe
 C:\Users\USER\Documents\GitHub\web-bilet-projesi\yeni individual accounts\webBiletProje\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\USER\Documents\GitHub\web-bilet-projesi\yeni individual accounts\webBiletProje\obj\Debug\webBiletProje.Migrations.InitialCreate.resources
+C:\Users\USER\Documents\GitHub\web-bilet-projesi\yeni individual accounts\webBiletProje\obj\Debug\webBiletProje.csproj.GenerateResource.cache
+C:\Users\USER\Documents\GitHub\web-bilet-projesi\yeni individual accounts\webBiletProje\obj\Debug\webBiletProje.Migrations.YourMigrationName.resources
+C:\Users\USER\Documents\GitHub\web-bilet-projesi\yeni individual accounts\webBiletProje\obj\Debug\webBiletProje.Migrations.YourMigrationName1.resources
+C:\Users\USER\Documents\GitHub\web-bilet-projesi\yeni individual accounts\webBiletProje\obj\Debug\webBiletProje.Migrations.YourMigrationName2.resources

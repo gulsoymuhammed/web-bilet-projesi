@@ -179,6 +179,23 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202312302122041_InitialCreate.cs" />
+    <Compile Include="Migrations\202312302122041_InitialCreate.Designer.cs">
+      <DependentUpon>202312302122041_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202401011334013_YourMigrationName.cs" />
+    <Compile Include="Migrations\202401011334013_YourMigrationName.Designer.cs">
+      <DependentUpon>202401011334013_YourMigrationName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202401011342488_YourMigrationName1.cs" />
+    <Compile Include="Migrations\202401011342488_YourMigrationName1.Designer.cs">
+      <DependentUpon>202401011342488_YourMigrationName1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202401011419146_YourMigrationName2.cs" />
+    <Compile Include="Migrations\202401011419146_YourMigrationName2.Designer.cs">
+      <DependentUpon>202401011419146_YourMigrationName2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Appointment.cs" />
     <Compile Include="Data\DataContext.cs" />
@@ -325,6 +342,20 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202312302122041_InitialCreate.resx">
+      <DependentUpon>202312302122041_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202401011334013_YourMigrationName.resx">
+      <DependentUpon>202401011334013_YourMigrationName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202401011342488_YourMigrationName1.resx">
+      <DependentUpon>202401011342488_YourMigrationName1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202401011419146_YourMigrationName2.resx">
+      <DependentUpon>202401011419146_YourMigrationName2.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

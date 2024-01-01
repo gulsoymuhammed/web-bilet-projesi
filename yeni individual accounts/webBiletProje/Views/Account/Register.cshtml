@@ -30,19 +30,57 @@
 
 
 
+
+
+
                 <div class="form-group">
-                 
-                        <div class="input-box" id="e-mail">
-                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Email" })
-                            <i class="fa-solid fa-square-envelope"></i>
+                    <div class="input-box-nameSurname" id="name">
+
+                        <div class="input-box">
+                            @Html.TextBoxFor(m => m.FirstName, new { placeholder = "İsim" })
+                            <i class='bx bx-user'></i>
                         </div>
-                    
+
+
+                        <div class="input-box">
+                            @Html.TextBoxFor(m => m.Surname, new { placeholder = "Soyisim" })
+                            <i class='bx bx-user'></i>
+                        </div>
+                    </div>
                 </div>
-                
+
 
 
                 <div class="form-group">
-                  
+                    <div class="input-box" id="tcKimlikNumarasi">
+                        @Html.TextBoxFor(m => m.SSN, new { placeholder = "T.C kimlik numarası" })
+                        <i class="fa-brands fa-odnoklassniki"></i>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="input-box" id="phoneNumber">
+                        @Html.TextBoxFor(m => m.Numberphone, new { placeholder = "Cep Telefonu" })
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                </div>
+
+
+
+
+                <div class="form-group">
+
+                    <div class="input-box" id="e-mail">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Email" })
+                        <i class="fa-solid fa-square-envelope"></i>
+                    </div>
+
+                </div>
+
+
+
+                <div class="form-group">
+
                     <div class="input-box" id="sifre">
                         @Html.TextBoxFor(m => m.Password, new { @class = "form-control", placeholder = "Şifre" })
                         <i class='bx bxs-lock-alt'></i>
@@ -51,9 +89,9 @@
 
 
                 <div class="form-group">
-                   
+
                     <div class="input-box" id="sifre_check">
-                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" ,placeholder = "Şifre Tekrar" })
+                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = "Şifre Tekrar" })
                     </div>
                 </div>
 
