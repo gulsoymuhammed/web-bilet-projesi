@@ -85,6 +85,7 @@ namespace webBiletProje.Controllers
             return View(model);
         }
 
+
         [Authorize]
         public async Task<ActionResult> AdminUser()
         {
