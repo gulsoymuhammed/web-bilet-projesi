@@ -37,11 +37,11 @@
                     @Html.Label("Etkinlik Seç:")
                     @if (ViewBag.Etkinliks != null)
                     {
-                        @Html.DropDownList("etkinlik", (SelectList)ViewBag.Etkinliks, "Select Etkinlik", new { @class = "form-control", id = "etkinlikDropdown" })
+                        @Html.DropDownList("etkinlik", (SelectList)ViewBag.Etkinliks, "Etkinlik Seç", new { @class = "form-control", id = "etkinlikDropdown" })
                     }
                     else
                     {
-                        <p>No etkinliks found.</p>
+                        <p>Etkinlik Bulunamadı.</p>
                     }
                 </div>
 
@@ -51,9 +51,9 @@
 
 
                 <div class="form-group">
-                    @Html.Label("EtkinlikDetay Seç:")
+                    @Html.Label("Etkinlik Seç:")
                     <select id="sehirDropdown" name="sehir" class="form-control">
-                        <option value="">EtkinlikDetay Seç</option>
+                        <option value="">Etkinlik Seç</option>
                     </select>
                 </div>
 
@@ -72,7 +72,7 @@
                 </div>
 
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Show Appointments</button>
+                    <button type="submit" class="btn btn-primary">Müsait Saatleri Göster</button>
                 </div>
             </div>
         </div>
@@ -115,14 +115,14 @@
     </div>
 
     <div class="form-group">
-        <a href="@Url.Action("OtherPage", "Home")" class="btn btn-success" name="next">Next</a>
+        <a href="@Url.Action("OtherPage", "Home")" class="btn btn-success" name="next">Devam Et</a>
     </div>
 
 
 }
 else
 {
-    <p>No appointments found.</p>
+    <p>Bilgileri Giriniz.</p>
 }
 
 
@@ -131,7 +131,7 @@ else
 <p id="selectedSehirInfo"></p>
 <p id="selectedBranchInfo"></p>
 <p id="selectedDepartmentInfo"></p>
-<p id="selectedTime">Selected Time: </p>
+<p id="selectedTime">Seçilen Saat: </p>
 
 
 
@@ -169,7 +169,7 @@ else
                         $('#sehirDropdown').empty();
 
                         // Add default option
-                        $('#sehirDropdown').append($('<option>').val('').text('Select Şehir'));
+                        $('#sehirDropdown').append($('<option>').val('').text('Etkinlik Seç'));
 
                         // Add options based on the data returned from the server
                         $.each(data, function (index, item) {
@@ -183,7 +183,7 @@ else
             } else {
                 // If no etkinlik is selected, clear şehir options
                 $('#sehirDropdown').empty();
-                $('#sehirDropdown').append($('<option>').val('').text('Select Şehir'));
+                $('#sehirDropdown').append($('<option>').val('').text('Etkinlik Seç'));
             }
         });
 
@@ -202,7 +202,7 @@ else
                         $('#branchDropdown').empty();
 
                         // Add default option
-                        $('#branchDropdown').append($('<option>').val('').text('Select Branch'));
+                        $('#branchDropdown').append($('<option>').val('').text('Etkinlik Seç'));
 
                         // Add options based on the data returned from the server
                         $.each(data, function (index, item) {
@@ -216,7 +216,7 @@ else
             } else {
                 // If no şehir is selected, clear branch options
                 $('#branchDropdown').empty();
-                $('#branchDropdown').append($('<option>').val('').text('Select Branch'));
+                $('#branchDropdown').append($('<option>').val('').text('Şehir Seç'));
             }
         });
 
@@ -233,7 +233,7 @@ else
                         $('#SalonDropdown').empty();
 
                         // Add default option
-                        $('#SalonDropdown').append($('<option>').val('').text('Select Salon'));
+                        $('#SalonDropdown').append($('<option>').val('').text('Salon Seç'));
 
                         // Add options based on the data returned from the server
                         $.each(data, function (index, item) {
@@ -247,7 +247,7 @@ else
             } else {
                 // If no branch is selected, clear Salon options
                 $('#SalonDropdown').empty();
-                $('#SalonDropdown').append($('<option>').val('').text('Select Salon'));
+                $('#SalonDropdown').append($('<option>').val('').text('Salon Seç'));
             }
         });
 
