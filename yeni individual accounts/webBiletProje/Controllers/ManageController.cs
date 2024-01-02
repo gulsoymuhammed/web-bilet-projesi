@@ -93,7 +93,7 @@ namespace webBiletProje.Controllers
             var users = UserManager.Users.ToList();
 
 
-            return View("Users", users);
+            return PartialView("Users", users);
 
         }
 
