@@ -1,4 +1,4 @@
-﻿@model webBiletProje.Models.IndexViewModel
+﻿@model webBiletProje.Models.UserViewModelExtended
 
 
 
@@ -43,12 +43,12 @@
                 <form action="/tr-tr/WebLogin/UserUpdate" class="form-horizontal" id="frmRegister" method="post">
                     <div class="form-group split" id="divFirstName">
                         <div>
-                            <input class="form-control input-sm namesOnly" placeholder="Adı" data-val="true" data-val-length="Adı alanı en az 50 karakter olmalıdır." data-val-length-max="50" data-val-required="Lütfen Adınızı Girin" id="FirstName" maxlength="50" name="FirstName" type="text" value="Muhammed">
+                            <input class="form-control input-sm namesOnly" placeholder="Adı" data-val="true" data-val-length="Adı alanı en az 50 karakter olmalıdır." data-val-length-max="50" data-val-required="Lütfen Adınızı Girin" id="FirstName" maxlength="50" name="FirstName" type="text" value="@Model.FirstName">
                             <span class="field-validation-valid" data-valmsg-for="FirstName" data-valmsg-replace="true"></span>
                         </div>
 
                         <div>
-                            <input class="form-control input-sm namesOnly" placeholder="Soyadı" data-val="true" data-val-length="Soyadı alanı en az 50 karakter olmalıdır." data-val-length-max="50" data-val-required="Lütfen Soyadınızı Girin" id="LastName" maxlength="50" name="LastName" type="text" value="Gülsoy">
+                            <input class="form-control input-sm namesOnly" placeholder="Soyadı" data-val="true" data-val-length="Soyadı alanı en az 50 karakter olmalıdır." data-val-length-max="50" data-val-required="Lütfen Soyadınızı Girin" id="LastName" maxlength="50" name="LastName" type="text" value="@Model.LastName">
                             <span class="field-validation-valid" data-valmsg-for="LastName" data-valmsg-replace="true"></span>
                         </div>
                     </div>
@@ -71,7 +71,7 @@
 
                 <div class="form-group row" id="divGsmNumber">
 
-                    <input disabled="" class="form-control input-sm col-md-8" placeholder="Cep Telefonu" id="GsmNumber" name="GsmNumber" type="text" value="5395174016">
+                    <input disabled="" class="form-control input-sm col-md-8" placeholder="Cep Telefonu" id="GsmNumber" name="GsmNumber" type="text" value="@Model.NumberPhone">
                     <div class="col-md-2">
                         <a class="upDate" href="/WebLogin/GSMConfirm" style="padding: 0.55rem 1.5rem !important; margin-top: unset !important">Değiştir</a>
                     </div>

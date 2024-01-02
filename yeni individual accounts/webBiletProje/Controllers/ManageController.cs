@@ -8,6 +8,8 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using webBiletProje.Models;
 
+
+//güncel olan
 namespace webBiletProje.Controllers
 {
     [Authorize]
@@ -64,16 +66,37 @@ namespace webBiletProje.Controllers
                 : "";
 
             var userId = User.Identity.GetUserId();
-            var model = new IndexViewModel
+
+            var userObject = await UserManager.FindByIdAsync(userId);
+
+
+            var model = new UserViewModelExtended
             {
                 HasPassword = HasPassword(),
                 PhoneNumber = await UserManager.GetPhoneNumberAsync(userId),
                 TwoFactor = await UserManager.GetTwoFactorEnabledAsync(userId),
                 Logins = await UserManager.GetLoginsAsync(userId),
-                BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
+                BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId),
+                FirstName = userObject.FirstName,
+                LastName = userObject.Surname,
+                SSN = userObject.SSN,
+                NumberPhone = userObject.Numberphone
             };
             return View(model);
         }
+
+        [Authorize]
+        public async Task<ActionResult> AdminUser()
+        {
+
+            var users = UserManager.Users.ToList();
+
+
+            return View("Users", users);
+
+        }
+
+
 
         //
         // POST: /Manage/RemoveLogin

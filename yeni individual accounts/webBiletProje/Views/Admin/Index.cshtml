@@ -55,13 +55,8 @@
             }, new { @class = "list-group-item list-group-item-action py-2 ripple active" })
 
 
-            @Ajax.ActionLink("Kullanıcılar", "FilmSearch", "Admin", null,
-            new AjaxOptions
-            {
-                UpdateTargetId = "target",
-                InsertionMode = InsertionMode.Replace,
-                HttpMethod = "GET"
-            }, new { @class = "list-group-item list-group-item-action py-2 ripple active" })
+            <a href="@Url.Action("AdminUser","Manage")">content</a>
+            
 
 
             @Ajax.ActionLink("Admin Bilgileri", "FilmSearch", "Admin", null,

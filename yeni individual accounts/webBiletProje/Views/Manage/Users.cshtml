@@ -1,0 +1,19 @@
+﻿@model List<webBiletProje.Models.ApplicationUser>
+@{
+    ViewBag.Title = "Users";
+}
+
+
+
+@foreach (var item in Model)
+{
+    <p>@item.Email</p>
+    <p>@item.FirstName</p>
+    <p>@item.Surname</p>
+    <p>@item.SSN</p>
+
+}
+
+
+
+
